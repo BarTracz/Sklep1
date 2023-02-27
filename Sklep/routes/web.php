@@ -34,6 +34,14 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
         Route::put('/category/{category}', 'update');
     });
 
+    Route::controller(App\Http\Controllers\Admin\BrandController::class)->group(function () {
+        Route::get('/brand', 'index');
+        Route::get('/brand/create', 'create');
+        Route::post('/brand', 'store');
+        Route::get('/brand/{brand}/edit', 'edit');
+        Route::put('/brand/{brand}', 'update');
+    });
+
     //Route::controller(App\Http\Controllers\Admin\SliderController::class)->group(function () {
     //    Route::get('sliders', 'index');
     //    Route::get('sliders/create', 'create');
@@ -41,16 +49,6 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     //    Route::get('sliders/{slider}/edit', 'edit');
     //    Route::put('sliders/{slider}', 'update');
     //    Route::get('sliders/{slider}/delete', 'destroy');
-    //});
-
-    // Category routes
-    //Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
-    //    Route::get('/category', 'index');
-    //    Route::get('/category/create', 'create');
-    //    Route::post('/category', 'store');
-    //    Route::get('/category/{category}/edit', 'edit');
-    //    Route::put('/category/{category}', 'update');
-    //
     //});
 
     //Route::controller(App\Http\Controllers\Admin\ProductController::class)->group(function () {
