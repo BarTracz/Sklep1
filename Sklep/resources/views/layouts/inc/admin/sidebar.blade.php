@@ -1,16 +1,23 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="category">
-          <i class="mdi mdi-view-headline menu-icon"></i>
-          <span class="menu-title">Categories</span>
-        </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="brand">
           <i class="mdi mdi-view-headline menu-icon"></i>
           <span class="menu-title">Brands</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#products" aria-expanded="false" aria-controls="product">
+          <i class="mdi mdi-view-headline menu-icon"></i>
+          <span class="menu-title">Products</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="products">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/products/create') }}">Add Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/products/view') }}">View Products</a></li>
+          </ul>
+        </div>
       </li>
     </ul>
   </nav>
