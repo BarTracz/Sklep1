@@ -64,14 +64,14 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label>Status</label>
-                                    <input type="checkbox" name="status" class="form-control" style="width: 50px; height: 50px;"/>
+                                    <label>Status</label><br/>
+                                    <input type="checkbox" name="status" style="width: 50px; height: 50px;"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label>Trending</label>
-                                    <input type="checkbox" name="trending" class="form-control" style="width: 50px; height: 50px;"/>
+                                    <label>Trending</label><br/>
+                                    <input type="checkbox" name="trending" style="width: 50px; height: 50px;"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -86,19 +86,209 @@
                                         var selected = document.getElementById("selector").value;
                                         switch (selected){
                                             case 'pcs':
-                                                document.getElementById('details').innerHTML = "PC DETAILS";
+                                                document.getElementById('details').innerHTML = 
+                                                '<div class="row">\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>OS</label>\
+                                                        <input type="text" name="os" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>CPU</label>\
+                                                        <input type="text" name="cpu" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>GPU</label>\
+                                                        <input type="text" name="gpu" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>RAM Type</label>\
+                                                        <input type="text" name="ram_type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>RAM Size</label>\
+                                                        <input type="number" name="ram_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk1 Type</label>\
+                                                        <input type="text" name="disk1_type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk1 Size</label>\
+                                                        <input type="number" name="disk1_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk2 Type</label>\
+                                                        <input type="text" name="disk2_type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk2 Size</label>\
+                                                        <input type="number" name="disk2_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                </div>';
                                                 break;
                                             case 'laptops':
-                                                document.getElementById('details').innerHTML = "LAPTOP DETAILS";
+                                                document.getElementById('details').innerHTML = 
+                                                '<div class="row">\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>OS</label>\
+                                                        <input type="text" name="os" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>CPU</label>\
+                                                        <input type="text" name="cpu" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>GPU</label>\
+                                                        <input type="text" name="gpu" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>RAM Type</label>\
+                                                        <input type="text" name="ram_type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>RAM Size</label>\
+                                                        <input type="number" name="ram_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk1 Type</label>\
+                                                        <input type="text" name="disk1_type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk1 Size</label>\
+                                                        <input type="number" name="disk1_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk2 Type</label>\
+                                                        <input type="text" name="disk2_type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk2 Size</label>\
+                                                        <input type="number" name="disk2_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Display Size</label>\
+                                                        <input type="number" name="display_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                </div>';
                                                 break;
                                             case 'mobiles':
-                                                document.getElementById('details').innerHTML = "MOBILE DETAILS";
+                                                document.getElementById('details').innerHTML = 
+                                                '<div class="row">\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>OS</label>\
+                                                        <input type="text" name="os" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>RAM Size</label>\
+                                                        <input type="number" name="ram_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Memory Size</label>\
+                                                        <input type="number" name="memory_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Display Size</label>\
+                                                        <input type="number" name="display_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                </div>';
                                                 break;
                                             case 'consoles':
-                                                document.getElementById('details').innerHTML = "CONSOLE DETAILS";
+                                                document.getElementById('details').innerHTML = 
+                                                '<div class="row">\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Type</label>\
+                                                        <input type="text" name="type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Disk Size</label>\
+                                                        <input type="number" name="Disk_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Controller number</label>\
+                                                        <input type="number" name="controller_number" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                </div>';
                                                 break;
                                             case 'smartwatches':
-                                                document.getElementById('details').innerHTML = "SMARTWATCH DETAILS";
+                                                document.getElementById('details').innerHTML = 
+                                                '<div class="row">\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Display size</label>\
+                                                        <input type="number" name="display_size" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>OS</label>\
+                                                        <input type="text" name="os" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>has_gps</label><br/>\
+                                                        <input type="checkbox" name="has_gps" style="width: 50px; height: 50px;" />\
+                                                    </div>\
+                                                </div>\
+                                                <div class="col-md-4">\
+                                                    <div class="mb-3">\
+                                                        <label>Connection Type</label>\
+                                                        <input type="text" name="connection_type" class="form-control"/>\
+                                                    </div>\
+                                                </div>\
+                                                </div>';
                                                 break;
                                         }
                                     }
