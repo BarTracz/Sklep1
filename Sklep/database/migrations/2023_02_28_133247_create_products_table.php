@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->string('category_name');
+            $table->tinyInteger('trending')->default('0');
             $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });

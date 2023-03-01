@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,6 +13,7 @@ class ProductController extends Controller
     }
 
     public function create(){
-        return view('admin.products.create');
+        $brands = Brand::all();
+        return view('admin.products.create', compact('brands'));
     }
 }
