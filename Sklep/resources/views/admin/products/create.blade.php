@@ -14,6 +14,7 @@
             </div>
             <div class="card-body" id="card-body">
                 <form action="{{ url('admin/products') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                         <div class="row">
                             <div class="col-md-4">    
                                 <div class="mb-3 mt-3">
@@ -43,13 +44,13 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label>Price</label>
-                                    <input type="number" name="price" class="form-control"/>
+                                    <input type="number" name="price" step="0.01" class="form-control"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label>Quantity</label>
-                                    <input type="number" name="quantity" min="1" class="form-control"/>
+                                    <input type="number" name="quantity" class="form-control"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -77,7 +78,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">        
                                     <label>Upload Product Images</label>
-                                    <input type="file" name="image" multiple class="form-control"/>
+                                    <input type="file" name="image[]" multiple class="form-control"/>
                                 </div>
                             </div>
                             <div id="details">
@@ -204,7 +205,7 @@
                                                 <div class="col-md-4">\
                                                     <div class="mb-3">\
                                                         <label>Display Size</label>\
-                                                        <input type="number" name="display_size" class="form-control"/>\
+                                                        <input type="number" name="display_size" step="0.01" class="form-control"/>\
                                                     </div>\
                                                 </div>\
                                                 </div>';
@@ -233,7 +234,7 @@
                                                 <div class="col-md-4">\
                                                     <div class="mb-3">\
                                                         <label>Display Size</label>\
-                                                        <input type="number" name="display_size" class="form-control"/>\
+                                                        <input type="number" name="display_size" step="0.01" class="form-control"/>\
                                                     </div>\
                                                 </div>\
                                                 </div>';
@@ -250,7 +251,7 @@
                                                 <div class="col-md-4">\
                                                     <div class="mb-3">\
                                                         <label>Disk Size</label>\
-                                                        <input type="number" name="Disk_size" class="form-control"/>\
+                                                        <input type="number" name="disk_size" class="form-control"/>\
                                                     </div>\
                                                 </div>\
                                                 <div class="col-md-4">\
@@ -267,7 +268,7 @@
                                                 <div class="col-md-4">\
                                                     <div class="mb-3">\
                                                         <label>Display size</label>\
-                                                        <input type="number" name="display_size" class="form-control"/>\
+                                                        <input type="number" name="display_size" step="0.01" class="form-control"/>\
                                                     </div>\
                                                 </div>\
                                                 <div class="col-md-4">\

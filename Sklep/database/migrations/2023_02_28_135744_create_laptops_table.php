@@ -14,15 +14,16 @@ return new class extends Migration
         Schema::create('laptops', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('os');
             $table->string('cpu');
             $table->string('gpu');
-            $table->integer('ram_type');
+            $table->string('ram_type');
             $table->integer('ram_size');
             $table->string('disk1_type');
             $table->integer('disk1_size');
-            $table->string('disk2_type');
-            $table->integer('disk2_size');
+            $table->string('disk2_type')->nullable();
+            $table->integer('disk2_size')->nullable();
             $table->float('display_size');
             $table->timestamps();
         });

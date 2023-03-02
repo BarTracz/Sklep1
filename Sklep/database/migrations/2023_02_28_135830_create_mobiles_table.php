@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mobiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('os');
             $table->integer('ram_size');
             $table->integer('memory_size');

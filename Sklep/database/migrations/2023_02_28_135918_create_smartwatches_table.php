@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('smartwatches', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->float('display_size');
             $table->string('os');
             $table->tinyInteger('has_gps')->comment('0=no 1=yes');
