@@ -21,7 +21,9 @@ use App\Http\Requests\SmartwatchFormRequest;
 class ProductController extends Controller
 {
     public function index(){
-        return view('admin.products.index');
+        
+        $products = Product::all();
+        return view('admin.products.index', compact('products'));
     }
 
     public function create(){
@@ -134,5 +136,12 @@ class ProductController extends Controller
         }
 
         return redirect('/admin/products')->with('message', 'Product added successfully');
+    }
+
+    public function edit(int $product_id){
+        $products = Product::all();
+        $brands = Brand::all();
+        $product = Product::findOrFail($product_id);
+        return view('admin.products.edit', compact('products', 'brands', 'product'));
     }
 }
