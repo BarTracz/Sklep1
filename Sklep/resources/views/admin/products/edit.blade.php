@@ -80,9 +80,24 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="mb-3">        
-                                    <label>Upload Product Images</label>
-                                    <input type="file" name="image[]" multiple class="form-control"/>
+                                <div class="mb-3">
+                                    <label>Upload product images</label>
+                                    <input type="file" name="image[]" multiple class="form-control" />
+                                </div>
+                                <div>
+                                    @if($product->productImages)
+                                    <div class="row">
+                                        @foreach ($product->productImages as $image)
+                                        <div class="col-md-2">
+                                            <img src="{{ asset($image->image) }}" style="width: 80px;height: 80px;" class="me-4 border" alt="img" />
+                                        <a href="{{ url('admin/product-image/'.$image->id.'/delete') }}" class="d-block">Remove</a>
+                                        </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @else
+                                    <h5>No image uploaded</h5>
+                                    @endif
                                 </div>
                             </div>
                             <div id="details">
