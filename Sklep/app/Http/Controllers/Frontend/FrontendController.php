@@ -14,13 +14,15 @@ class FrontendController extends Controller
         return view('frontend.index', compact('sliders'));
     }
 
+    //Wybierane są każde category_name z produktu, czyli po pare razy jest do wyboru kategoria np. pcs. -- Naprawić -- distinct() nie działa, albo nie wiem jak działa, group by posysa
+
     public function categories() {
         $categories = Product::where('status', '0')->get();
         return view('frontend.collections.category.index', compact('categories'));
     }
 
     public function products($category_name) {
-        $product = Product::where('category_name', $category_name)->first();
+        $product = Product::where('category_name', $category_name);
         if ($product) {
             $products = $product->get();
             return view('frontend.collections.products.index', compact('products'));
