@@ -13,9 +13,9 @@
                 @forelse ($categories as $categoryItem)
                 <div class="col-6 col-md-3">
                     <div class="category-card">
-                        <a href="{{ url('/collections/'.$categoryItem->category_name) }}">
+                        <a href="{{ url('/collections/'.$categoryItem) }}">
                             <div class="category-card-body">
-                                <h5>{{$categoryItem->category_name}}</h5>
+                                <h5>{{$categoryItem}}</h5>
                             </div>
                         </a>
                     </div>

@@ -4,13 +4,17 @@
             <div class="card">
                 <div class="card-header"><h4>Brands</h4></div>
                 <div class="card-body">
-                    @foreach ($products as $item)
-                    @foreach ($item->brands as $brand)
+                    @if(gettype($brands)=='string')
                     <label class="d-block">
-                        <input type="checkbox" value=" {{ $brand->name }}" /> {{ $brand->name }}
+                        <input type="checkbox" value=" {{ $brands }}" /> {{ $brands }}
+                    </label>
+                    @else
+                    @foreach ($brands as $brand)
+                    <label class="d-block">
+                        <input type="checkbox" value=" {{ $brand }}" /> {{ $brand }}
                     </label>
                     @endforeach
-                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>
