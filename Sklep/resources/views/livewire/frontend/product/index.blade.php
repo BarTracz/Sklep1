@@ -5,9 +5,11 @@
                 <div class="card-header"><h4>Brands</h4></div>
                 <div class="card-body">
                     @foreach ($products as $item)
+                    @foreach ($item->brands as $brand)
                     <label class="d-block">
-                        <input type="checkbox" value=" {{ $item->brand_id }}" /> {{ $item->brand_id }} <!-- wyświetlanie nazw z relacji -->
+                        <input type="checkbox" value=" {{ $brand->name }}" /> {{ $brand->name }}
                     </label>
+                    @endforeach
                     @endforeach
                 </div>
             </div>
