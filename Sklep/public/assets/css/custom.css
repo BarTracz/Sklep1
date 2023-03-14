@@ -114,7 +114,7 @@
     background-color: #fff;
     border: 1px solid #ccc;
     margin-bottom: 24px;
-    width: 600px;
+    width: 400px;
 }
 .product-card a{
     text-decoration: none;
@@ -129,7 +129,7 @@
 }
 .product-card .product-card-img{
     max-height: 500px;
-    width: 600px;
+    width: 300px;
     overflow: hidden;
     border-bottom: 1px solid #ccc;
 }
@@ -266,4 +266,16 @@
     margin: 0px 10px;
     color: #fff;
     width: 20px;
+}
+
+.brands{
+    float: left;
+    display: inline;
+    width: 100px;
+}
+
+.brands .card{
+    float: left;
+    display: inline;
+    width: 100px;
 }

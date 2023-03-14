@@ -11,7 +11,7 @@
 
         <div class="carousel-item {{ $key == '0' ? 'active':'' }}">
             @if($sliderItem->image)
-            <img src="{{ asset("$sliderItem->image")}}" class="d-block w-100" alt="...">
+            <img src="{{ asset("$sliderItem->image")}}" class="d-block w-100" style="height:800px" alt="...">
             @endif
             <div class="carousel-caption d-none d-md-block">
                 <div class="custom-carousel-content">
