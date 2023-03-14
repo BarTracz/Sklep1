@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <h4 class="mb-4">Our Products</h4>
             </div>
-            <livewire:frontend.product.index :products="$products" :brands="$brands" />
+            <livewire:frontend.product.index :products="$products" :brands="$brands" :category_name="$category_name" />
         </div>
     </div>
 </div>

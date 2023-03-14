@@ -4,17 +4,11 @@
             <div class="card">
                 <div class="card-header"><h4>Brands</h4></div>
                 <div class="card-body">
-                    @if(gettype($brands)=='string')
-                    <label class="d-block">
-                        <input type="checkbox" value=" {{ $brands }}" /> {{ $brands }}
-                    </label>
-                    @else
                     @foreach ($brands as $brand)
                     <label class="d-block">
-                        <input type="checkbox" value=" {{ $brand }}" /> {{ $brand }}
+                        <input type="checkbox" wire:model="brandInputs" value="{{ $brand['id'] }}" /> {{ $brand['name'] }}
                     </label>
                     @endforeach
-                    @endif
                 </div>
             </div>
         </div>
@@ -58,7 +52,7 @@
             <div class="col-md-12">
                 <div class="p-2">
                     <h4>
-                        No Products Available for {{ $product->category_name}}
+                        No Products Available for {{ $category_name }}
                     </h4>
                 </div>
             </div>
