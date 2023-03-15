@@ -4,7 +4,7 @@
 @section('content')
 
 <div>
-    <livewire:frontend.product.view />
+    <livewire:frontend.product.view :product="$product" :parameters="$parameters" />
 </div>
 
 @endsection

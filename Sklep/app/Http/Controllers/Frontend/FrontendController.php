@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\PC;
+use App\Models\Laptop;
+use App\Models\Mobile;
+use App\Models\Smartwatch;
+use App\Models\Console;
 use App\Models\Product;
 use App\Models\Brand;
 use Illuminate\Http\Request;
@@ -56,22 +61,32 @@ class FrontendController extends Controller
         }
     }
 
-    /*public function productView(string $category_slug, string $product_slug) {
-        $category = Category::where('slug', $category_slug)->first();
-        if ($category) {
-
-            $product = $category->products()->where('slug', $product_slug)->where('status', '0')->first();
-            if ($product) {
-                return view('frontend.collections.products.view', compact('product', 'category'));
-            }else {
-                return redirect()->back();
+    public function productView(string $category_name, string $product_id) {
+        $product = Product::where('id',$product_id)->where('status','0')->first();
+        if ($product) {
+            switch ($category_name){
+                case 'pcs':
+                    $parameters = PC::where('product_id', $product_id)->first();
+                    break;
+                case 'mobiles':
+                    $parameters = Mobile::where('product_id', $product_id)->first();
+                    break;
+                case 'laptops':
+                    $parameters = Laptop::where('product_id', $product_id)->first();
+                    break;
+                case 'consoles':
+                    $parameters = Console::where('product_id', $product_id)->first();
+                    break;
+                case 'smartwatches':
+                    $parameters = Smartwatch::where('product_id', $product_id)->first();
+                    break;
             }
-            
+            return view('frontend.collections.products.view', compact('product', 'parameters'));
         }
        else {
             return redirect()->back();
         }
-    }*/
+    }
 
  //   public function searchProducts(Request $request)
  //   {

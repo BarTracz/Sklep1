@@ -1,7 +1,5 @@
 <div>
-    <div class="brands">
-        
-            
+    <div class="brands">            
                 <div class="card">
                     <div class="card-header"><h5>Brands</h5></div>
                     <div class="card-body">
@@ -10,6 +8,17 @@
                             <input type="checkbox" wire:model="brandInputs" value="{{ $brand['id'] }}" /> {{ $brand['name'] }}
                         </label>
                         @endforeach
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h5>Price</h5></div>
+                    <div class="card-body">
+                        <label class="d-block">
+                            <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" />Hight to Low
+                        </label>
+                        <label class="d-block">
+                            <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" />Low to High
+                        </label>
                     </div>
                 </div>
             
@@ -44,7 +53,7 @@
                         <div class="mt-2">
                             <a href="" class="btn btn1">Add To Cart</a>
                             <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
-                            <a href="{{ url('/collections/'.$productItem->category_name.'/'.$productItem->name)}}"
+                            <a href="{{ url('/collections/'.$productItem->category_name.'/'.$productItem->id)}}"
                                 class="btn btn1"> View </a>
                         </div>
                     </div>
