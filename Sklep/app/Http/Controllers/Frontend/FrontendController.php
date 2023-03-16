@@ -81,7 +81,8 @@ class FrontendController extends Controller
                     $parameters = Smartwatch::where('product_id', $product_id)->first();
                     break;
             }
-            return view('frontend.collections.products.view', compact('product', 'parameters'));
+            $attributes = $parameters->getAttributes();
+            return view('frontend.collections.products.view', compact('product', 'parameters', 'attributes'));
         }
        else {
             return redirect()->back();

@@ -4,7 +4,9 @@
             <div class="row">
                 <div class="col-md-5 mt-3">
                     <div class="bg-white border">
-                        <img src="hp-laptop.jpg" class="w-100" alt="Img">
+                        @if ($product->productImages->count() > 0)
+                        <img src="{{ asset($product->productImages[0]->image) }}" alt="{{ $product->name }}">
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-7 mt-3">
@@ -18,7 +20,7 @@
                             Home / Category / Product / HP Laptop
                         </p>
                         <div>
-                            <span class="selling-price">$399</span>
+                            <span class="selling-price">${{ $product->price }}</span>
                             <span class="original-price">$499</span>
                         </div>
                         <div class="mt-2">
@@ -35,7 +37,34 @@
                         <div class="mt-3">
                             <h5 class="mb-0">Parameters</h5>
                             <p>
-                                {{ $parameters }}
+                                @php
+                                $count = count($attributes);
+                                $i = 1;
+                                @endphp
+
+                                <!-- His palms are sweaty, knees weak, arms are heavy
+                                There's vomit on his sweater already, mom's spaghetti -->
+                                <!--Foreach $key - nazwa i $value - wartość, ucfirst i str_replace modyfikacja wyświetlanego tekstu -->
+                                @foreach ($attributes as $k => $v)
+                                @if($i > 2 && $i < $count-1)
+                                    @if(($k == 'disk_size' or $k == 'disk1_size' or $k == 'disk2_size' or $k == 'memory_size' or $k == 'ram_size') && $v % 1024 == 0)
+                                    @php $v = $v/1024 @endphp
+                                    <b>{{ ucfirst(str_replace('_', ' ',$k)) }}</b> - {{ $v }} TB<br />
+                                    @elseif(($k == 'disk_size' or $k == 'disk1_size' or $k == 'disk2_size' or $k == 'memory_size' or $k == 'ram_size') && $v % 1024 != 0)
+                                    <b>{{ ucfirst(str_replace('_', ' ',$k)) }}</b> - {{ $v }} GB<br />
+                                    @elseif(($k == 'controller_number' && $v == 1))
+                                    <b>{{ ucfirst(str_replace('_', ' ',$k)) }}</b> - {{ $v }} pc<br />
+                                    @elseif(($k == 'controller_number' && $v > 1))
+                                    <b>{{ ucfirst(str_replace('_', ' ',$k)) }}</b> - {{ $v }} pcs<br />
+                                    @elseif(($k == 'display_size'))
+                                    <b>{{ ucfirst(str_replace('_', ' ',$k)) }}</b> - {{ $v }}"<br />
+                                    @else
+                                    <b>{{ ucfirst(str_replace('_', ' ',$k)) }}</b> - {{ $v }} <br />
+                                    @endif
+                                    @php $i++ @endphp
+                                @else @php $i++ @endphp
+                                @endif
+                                @endforeach
                             </p>
                         </div>
                     </div>
@@ -49,7 +78,7 @@
                         </div>
                         <div class="card-body">
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                {{ $product->description }}
                             </p>
                         </div>
                     </div>

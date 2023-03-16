@@ -6,11 +6,12 @@ use Livewire\Component;
 
 class View extends Component
 {
-    public $product, $parameters;
-    public function mount($product,$parameters)
+    public $product, $parameters, $attributes;
+    public function mount($product,$parameters,$attributes)
     {
         $this->product = $product;
         $this->parameters = $parameters;
+        $this->attributes = $attributes;
     }
 
     public function render()
@@ -18,6 +19,7 @@ class View extends Component
         return view('livewire.frontend.product.view',[
             'product' => $this->product,
             'parameters' => $this->parameters,
+            'attributes' => $this->attributes,
         ]);
     }
 }
