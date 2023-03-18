@@ -31,7 +31,15 @@
                                  </li>
                             @endif
                             @else
-                                </li>
+                            
+                            <li>
+                                <a class="nav-link"><i class="fa fa-heart"></i> Wishlist</a>
+                            </li>
+                            
+                            <li>
+                                <a class="nav-link"><i class="fa fa-shopping-cart"></i> Your Cart</a>
+                            </li>
+                                
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">

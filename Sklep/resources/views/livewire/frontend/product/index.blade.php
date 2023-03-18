@@ -42,9 +42,9 @@
                     <div class="product-card-body">
                         <p class="product-brand"></p>
                         <h5 class="product-name">
-                            <a href="">
+                            
                                 {{ $productItem->name }}
-                            </a>
+                            
                         </h5>
                         <div>
                             <span class="selling-price">${{ $productItem->price }}</span>

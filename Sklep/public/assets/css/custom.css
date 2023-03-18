@@ -36,6 +36,8 @@
     letter-spacing: 0.5px;
 }
 
+/* Navbar */
+
 .main-navbar{
     border-bottom: 1px solid #ccc;
 }
@@ -69,12 +71,17 @@
 }
 .main-navbar .navbar{
     padding: 0px;
-    background-color: #ddd;
+    background-color: #6d0505;
 }
 .main-navbar .navbar .nav-item .nav-link{
     padding: 8px 20px;
-    color: #000;
+    color: #fff;
     font-size: 15px;
+    letter-spacing: 2px;
+}
+.main-navbar .navbar .nav-item .nav-link:hover{
+    background-color: #8d0404;
+    color: #fff;
 }
 
 @media only screen and (max-width: 600px) {
@@ -83,6 +90,8 @@
         padding: 8px 10px;
     }
 }
+
+/* Categories */
 
 .category-card{
     border: 1px solid #ddd;
@@ -110,14 +119,17 @@
     text-align: center;
 }
 
+/* Products */
+
 .product-card{
     background-color: #fff;
     border: 1px solid #ccc;
     margin-bottom: 24px;
-    width: 400px;
+    width: 30%;
 }
 .product-card a{
     text-decoration: none;
+    color: #000;
 }
 .product-card .stock{
     position: absolute;
@@ -128,8 +140,8 @@
     font-size: 12px;
 }
 .product-card .product-card-img{
-    max-height: 500px;
-    width: 300px;
+    max-height: 100%;
+    width: 100%;
     overflow: hidden;
     border-bottom: 1px solid #ccc;
 }
@@ -137,9 +149,13 @@
     width: 100%;
 }
 .product-card .product-card-body{
-    width: 600px;
-    height: 500px;
+    width: 70%;
 }
+.product-card .product-card-body a:hover{
+    background-color: #000;
+    color: #fff;
+}
+
 .product-card .product-card-body .product-brand{
     font-size: 14px;
     font-weight: 400;
@@ -283,7 +299,7 @@
 /* Product View */
 .product-view .product-name{
     font-size: 24px;
-    color: #2874f0;
+    color: #000;
 }
 .product-view .product-name .label-stock{
     font-size: 13px;
@@ -319,7 +335,7 @@
     margin-top: 10px;
 }
 .product-view .btn1:hover{
-    background-color: #2874f0;
+    background-color: #000;
     color: #fff;
 }
 .product-view .input-quantity{
