@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PC extends Model
 {
@@ -24,4 +25,7 @@ class PC extends Model
         'disk2_size',
     ];
 
+    public function products(): BelongsTo {
+        return $this->belongsTo(Product::class, 'brand_id', 'id');
+    }
 }

@@ -33,7 +33,7 @@
                             @else
                             
                             <li>
-                                <a class="nav-link"><i class="fa fa-heart"></i> Wishlist</a>
+                                <a class="nav-link" href="{{ url('wishlist') }}"><i class="fa fa-heart"></i> Wishlist (<livewire:frontend.wishlist-count />)</a>
                             </li>
                             
                             <li>

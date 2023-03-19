@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Smartwatch extends Model
 {
@@ -18,4 +19,8 @@ class Smartwatch extends Model
         'connection_type',
         'display_size',
     ];
+
+    public function products(): BelongsTo {
+        return $this->belongsTo(Product::class, 'brand_id', 'id');
+    }
 }

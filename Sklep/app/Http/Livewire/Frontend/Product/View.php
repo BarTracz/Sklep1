@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class View extends Component
 {
-    public $product, $parameters, $attributes;
+    public $product, $parameters, $attributes, $quantityCount = 1;
 
     public function addToWishList($productId)
     {
@@ -17,7 +17,11 @@ class View extends Component
         {
             if(WIshlist::where('user_id',auth()->user()->id)->where('product_id', $productId)->exists())
             {
-                session()->flash('message','Already added to wishlist');
+                $this->dispatchBrowserEvent('message', [
+                    'text' => 'Already added to wishlist',
+                    'type' => 'warning',
+                    'status' => 409
+                ]);
                 return false;
             }
             else
@@ -26,15 +30,38 @@ class View extends Component
                     'user_id' => auth()->user()->id,
                     'product_id' => $productId
                 ]);
-                session()->flash('message',"Product added succesfully");
+                $this->emit('wishlistAddedUpdated');
+                $this->dispatchBrowserEvent('message', [
+                    'text' => 'Product added succesfully',
+                    'type' => 'success',
+                    'status' => 200
+                ]);
+                return false;
             }
         }
         else
         {
-            session()->flash('message','Please login to continue');
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Please Login to continue',
+                'type' => 'info',
+                'status' => 401
+            ]);
             return false;
         }
     }
+
+    public function decrementQuantity() {
+        if($this->quantityCount > 1) {
+        $this->quantityCount--;
+        }
+    }
+
+    public function incrementQuantity() {
+        if($this->quantityCount < 10) {
+        $this->quantityCount++;
+        }
+    }
+
     public function mount($product,$parameters,$attributes)
     {
         $this->product = $product;

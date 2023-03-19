@@ -51,8 +51,6 @@
                             <span class="price-from-30-days">TU CENA SPRZED MIESIĄCA, OKOK?</span>
                         </div>
                         <div class="mt-2">
-                            <a href="" class="btn btn1">Add To Cart</a>
-                            <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
                             <a href="{{ url('/collections/'.$productItem->category_name.'/'.$productItem->id)}}"
                                 class="btn btn1"> View </a>
                         </div>

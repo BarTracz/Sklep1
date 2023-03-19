@@ -8,12 +8,13 @@ use App\Models\Laptop;
 use App\Models\Mobile;
 use App\Models\Console;
 use App\Models\Product;
-use Illuminate\Support\Facades\File;
 use App\Models\Smartwatch;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PCFormRequest;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\LaptopFormRequest;
 use App\Http\Requests\MobileFormRequest;
 use App\Http\Requests\ConsoleFormRequest;
@@ -50,15 +51,29 @@ class ProductController extends Controller
         $product->save();
 
         if($request->hasFile('image')){
+            //upload path
             $uploadPath = 'uploads/products/';
             
             $i = 1;
             foreach($request->file('image') as $imageFile){
+                //get extension
                 $extension = $imageFile->getClientOriginalExtension();
+                //make filename
                 $filename = time().$i++.'.'.$extension;
+                //move file
                 $imageFile->move($uploadPath,$filename);
+                //image path name
                 $finalImagePathName = $uploadPath.$filename;
+                //open added image
+                $img = Image::make($finalImagePathName);
+                //resize added image with constant aspect ratio
+                $img->resize(320, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                //save added image at same path as before
+                $img->save($finalImagePathName);
 
+                //create entry in database
                 $product->productImages()->create([
                     'product_id' => $product->id,
                     'image' => $finalImagePathName,
@@ -176,6 +191,14 @@ class ProductController extends Controller
                 $filename = time().$i++.'.'.$extension;
                 $imageFile->move($uploadPath,$filename);
                 $finalImagePathName = $uploadPath.$filename;
+                //open added image
+                $img = Image::make($finalImagePathName);
+                //resize added image with constant aspect ratio
+                $img->resize(320, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                //save added image at same path as before
+                $img->save($finalImagePathName);
 
                 $product->productImages()->create([
                     'product_id' => $product->id,

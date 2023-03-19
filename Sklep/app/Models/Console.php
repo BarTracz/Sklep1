@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Console extends Model
 {
@@ -17,4 +18,8 @@ class Console extends Model
         'disk_size',
         'controller_number',
     ];
+
+    public function products(): BelongsTo {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }
