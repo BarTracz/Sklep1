@@ -3,9 +3,13 @@
 namespace App\Http\Livewire\Frontend\Product;
 
 
+use App\Models\Product;
 use App\Models\Wishlist;
+use App\Models\Cart;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 class View extends Component
 {
@@ -38,6 +42,35 @@ class View extends Component
                 ]);
                 return false;
             }
+        }
+        else
+        {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Please Login to continue',
+                'type' => 'info',
+                'status' => 401
+            ]);
+            return false;
+        }
+    }
+
+    public function addToCart(Request $request, $product)
+    {
+        if(Auth::check())
+        {
+            $product = Product::where('id', $product['id'])->first();
+            $cart = session()->get('cart');
+
+            $cart[$product->id] = [
+                'product' => $product,
+                'quantity' => $this->quantityCount,
+                'price' => $product->price * $this->quantityCount
+            ];
+            
+            $request->session()->put('cart', $cart);
+            $request->session()->save();
+            dd(Session::get('cart'));
+            return redirect()->back();
         }
         else
         {
