@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
 
 class View extends Component
 {
-    public $product, $parameters, $attributes, $quantityCount = 1;
+    public $product, $parameters, $attributes, $lowest_price_from_30_days, $quantityCount = 1;
 
     public function addToWishList($productId)
     {
@@ -95,11 +95,12 @@ class View extends Component
         }
     }
 
-    public function mount($product,$parameters,$attributes)
+    public function mount($product,$parameters,$attributes,$lowest_price_from_30_days)
     {
         $this->product = $product;
         $this->parameters = $parameters;
         $this->attributes = $attributes;
+        $this->lowest_price_from_30_days = $lowest_price_from_30_days;
     }
 
     public function render()
@@ -108,6 +109,7 @@ class View extends Component
             'product' => $this->product,
             'parameters' => $this->parameters,
             'attributes' => $this->attributes,
+            'lowest_price_from_30_days' => $this->lowest_price_from_30_days,
         ]);
     }
 }

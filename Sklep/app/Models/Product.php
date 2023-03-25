@@ -8,6 +8,7 @@ use App\Models\Laptop;
 use App\Models\Mobile;
 use App\Models\Smartwatch;
 use App\Models\ProductImage;
+use App\Models\Old_prices;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -54,5 +55,9 @@ class Product extends Model
 
     public function Console() {
         return $this->hasMany(Console::class, 'id', 'product_id')->where('status', '0');
+    }
+
+    public function Old_prices() {
+        return $this->hasMany(Old_prices::class, 'id', 'old_prices_id')->where('status', '0');
     }
 }

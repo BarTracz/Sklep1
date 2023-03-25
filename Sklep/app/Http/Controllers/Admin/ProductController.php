@@ -10,6 +10,7 @@ use App\Models\Console;
 use App\Models\Product;
 use App\Models\Smartwatch;
 use App\Models\ProductImage;
+use App\Models\Old_prices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PCFormRequest;
@@ -172,6 +173,10 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($product);
         if($product){
+            $old_prices = new Old_prices();
+            $old_prices->old_price_id = $product->id;
+            $old_prices->price = $product->price;
+            $old_prices->save();
             $product->update([
                 'name' => $validatedData['name'],
                 'description' => $validatedData['description'],

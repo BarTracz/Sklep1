@@ -10,8 +10,10 @@ use App\Models\Smartwatch;
 use App\Models\Console;
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\Old_prices;
 use Illuminate\Http\Request;
 use App\Models\Slider;
+use Carbon\Carbon;
 
 class FrontendController extends Controller
 {
@@ -36,6 +38,7 @@ class FrontendController extends Controller
         $this->$category_name = $category_name;
         $product = Product::where('category_name', $category_name);
         $brands = [];
+        $highest_30day_price = 0;
         if ($product!=null) {
             $products = $product->get();
             foreach($products as $item){
@@ -82,7 +85,9 @@ class FrontendController extends Controller
                     break;
             }
             $attributes = $parameters->getAttributes();
-            return view('frontend.collections.products.view', compact('product', 'parameters', 'attributes'));
+            $lowest_price_from_30_days = Old_prices::where('old_price_id', $product->id)->where('created_at', '>', now()->subDays(30)->endOfDay())->min('price');
+            $delete = Old_prices::whereDate('created_at', '<=', now()->subDays(30))->delete();
+            return view('frontend.collections.products.view', compact('product', 'parameters', 'attributes', 'lowest_price_from_30_days'));
         }
        else {
             return redirect()->back();

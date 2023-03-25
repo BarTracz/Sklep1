@@ -25,7 +25,9 @@
                         </p>
                         <div>
                             <span class="selling-price">${{ $product->price }}</span>
-                            <span class="original-price">$499</span>
+                            @if($lowest_price_from_30_days>0)
+                            <span class="original-price">${{ $lowest_price_from_30_days }}</span>
+                            @endif
                         </div>
                         <div>
                             @if($product->quantity)
