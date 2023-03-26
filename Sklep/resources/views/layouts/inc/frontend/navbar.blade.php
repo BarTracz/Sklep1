@@ -37,7 +37,7 @@
                             </li>
                             
                             <li>
-                                <a class="nav-link"><i class="fa fa-shopping-cart"></i> Your Cart</a>
+                                <a class="nav-link" href="{{ url('cart') }}"><i class="fa fa-shopping-cart"></i> Your Cart</a>
                             </li>
                                 
                                     <li class="nav-item dropdown">

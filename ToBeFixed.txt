@@ -1,0 +1,14 @@
+HIGH PRIO
+
+dodawanie produktow z widoku produktu // zrobic zeby ilosc nie mogla przekraczac quantity
+wyszukiwarka tekstowa // do zrobienia
+filtrowanie po parametrach // do zrobienia
+
+MID PRIO
+
+edytowanie produktow // niech wypelnia odrazu pola danymi produktu ktory edytujemy 
+
+LOW PRIO
+
+kategorie // mozna przeniesc na pasek zamiast osobnego blade'a
+fix widoku podczas filtrowania produktow // kleja sie do siebie divy i ogolnie nie fajnie , dodac jakis spacing chociaz
