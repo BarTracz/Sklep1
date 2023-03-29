@@ -61,9 +61,20 @@
                                     </div>
                                 </div>
                             </div>
+
                             @empty
                                 <h4>No items in Cart</h4>
                             @endforelse 
+                        </div>
+                        <div class="place-order">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="total-price">Total price: {{ $cartPrice }} </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="{{ url('order') }}"><span class="btn btn-success">Place Order</span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

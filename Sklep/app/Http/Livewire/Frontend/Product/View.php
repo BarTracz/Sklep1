@@ -69,7 +69,6 @@ class View extends Component
             
             $request->session()->put('cart', $cart);
             $request->session()->save();
-            dd(Session::get('cart'));
             return redirect()->back();
         }
         else

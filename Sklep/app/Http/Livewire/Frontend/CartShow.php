@@ -79,8 +79,14 @@ class CartShow extends Component
     public function render()
     {
         $cart = Session::get('cart');
+        $cartPrice=0;
+
+        foreach($cart as $item){
+            $cartPrice += $item['price'];
+        }
         return view('livewire.frontend.cart-show',[
             'cart' => $cart,
+            'cartPrice' => $cartPrice,
         ]);
     }
 }
