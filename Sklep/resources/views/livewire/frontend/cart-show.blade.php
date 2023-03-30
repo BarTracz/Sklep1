@@ -66,19 +66,23 @@
                                 <h4>No items in Cart</h4>
                             @endforelse 
                         </div>
-                        <div class="place-order">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="total-price">Total price: {{ $cartPrice }} </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="{{ url('order') }}"><span class="btn btn-success">Place Order</span></a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
+                <div class ="row">
+                    <div class="col-md-8 mt-3">
+                        
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <div class="shadow-sm bg-white p-3">
+                            <h4>Total:
+                                <span class="float-end">{{ $totalPrice }}</span>
+                            </h4>
+                            <hr>
+                            <a href="{{ url('/order')}}" class="btn btn-warning w-100">Checkout</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

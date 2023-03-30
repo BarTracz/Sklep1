@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 class CartShow extends Component
 {
 
+    public $totalPrice;
     public function removeCartItem(Request $request, int $item_id) {
 
         $cart = session()->get('cart');
@@ -76,17 +77,25 @@ class CartShow extends Component
         dd(Session::get('cart'));
     }
 
+    public function totalPrice(){
+        $cart = Session::get('cart');
+        $this->totalPrice=0;
+
+        foreach($cart as $item){
+            $this->totalPrice += $item['price'];
+        }
+
+        return $this->totalPrice;
+    }
+
     public function render()
     {
         $cart = Session::get('cart');
-        $cartPrice=0;
-
-        foreach($cart as $item){
-            $cartPrice += $item['price'];
-        }
+        $this->totalPrice = $this->totalPrice();
+        
         return view('livewire.frontend.cart-show',[
             'cart' => $cart,
-            'cartPrice' => $cartPrice,
+            'totalPrice' => $this->totalPrice,
         ]);
     }
 }

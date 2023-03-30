@@ -3,6 +3,12 @@ HIGH PRIO
 dodawanie produktow z widoku produktu // zrobic zeby ilosc nie mogla przekraczac quantity
 wyszukiwarka tekstowa // do zrobienia
 filtrowanie po parametrach // do zrobienia
+slidery niech maja przekierowanie do stron przedmiotow // do zrobienia
+obrazki ze sliderow rozciagaja sie na cala strone // fixnac
+
+zrobic brak mozliwosci zlozenia ordera jesli quantity == 0 // fixnac
+w orderze podczas walidacji niech sie wyswietla jakies info co jest nie tak // do zrobienia
+frontend order/success // do zrobienia
 
 MID PRIO
 

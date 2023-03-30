@@ -15,19 +15,16 @@ class Order extends Model
     protected $table = 'orders';
 
     protected $fillable = [
-        'order_number',
         'user_id',
-        'product_id',
+        'Name',
+        'Surname',
         'zip_code',
         'city',
         'street',
-        'house_number'
+        'house_number',
+        'phone_number',
+        'total_price',
     ];
-
-    public function product(): BelongsTo
-    {
-        return $this->belongsTo(Product::class, 'product_id', 'id');
-    }
 
     public function user(): BelongsTo
     {

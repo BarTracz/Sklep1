@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('street');
             $table->integer('house_number');
             $table->integer('phone_number');
+            $table->float('total_price');
             $table->timestamps();
         });
     }

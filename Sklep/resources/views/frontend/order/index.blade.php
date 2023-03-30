@@ -27,7 +27,7 @@
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
                             Item Total Amount :
-                            <span class="float-end">$5454</span>
+                            <span class="float-end">{{ $totalPrice }}</span>
                         </h4>
                         <hr>
                         <small>* Items will be delivered in 3 - 5 days.</small>
@@ -42,27 +42,36 @@
                         </h4>
                         <hr>
 
-                        <form action="" method="POST">
+                        <form action="{{ url('order/store') }}" method="POST">
+                        @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label>Full Name</label>
-                                    <input type="text" name="fullname" class="form-control" placeholder="Enter Full Name" />
+                                    <label>First Name</label>
+                                    <input type="text" name="firstname" class="form-control" placeholder="Enter First Name" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Last Name</label>
+                                    <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" />
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Phone Number</label>
                                     <input type="number" name="phone" class="form-control" placeholder="Enter Phone Number" />
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>Email Address</label>
-                                    <input type="email" name="email" class="form-control" placeholder="Enter Email Address" />
+                                    <label>Zip-code</label>
+                                    <input type="text" name="zipcode" class="form-control" placeholder="Enter Zip-code" />
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>Pin-code (Zip-code)</label>
-                                    <input type="number" name="pincode" class="form-control" placeholder="Enter Pin-code" />
+                                    <label>City</label>
+                                    <input type="text" name="city" class="form-control" placeholder="Enter City">
                                 </div>
-                                <div class="col-md-12 mb-3">
-                                    <label>Full Address</label>
-                                    <textarea name="address" class="form-control" rows="2"></textarea>
+                                <div class="col-md-6 mb-3">
+                                    <label>Street</label>
+                                    <input type="text" name="street" class="form-control" placeholder="Enter Street">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>House Number</label>
+                                    <input type="text" name="house" class="form-control" placeholder="Enter House Number">
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label>Select Payment Mode: </label>
@@ -74,7 +83,7 @@
                                             <div class="tab-pane fade" id="cashOnDeliveryTab" role="tabpanel" aria-labelledby="cashOnDeliveryTab-tab" tabindex="0">
                                                 <h6>Cash on Delivery Mode</h6>
                                                 <hr/>
-                                                <button type="button" class="btn btn-primary">Place Order (Cash on Delivery)</button>
+                                                <button type="submit" class="btn btn-primary">Place Order (Cash on Delivery)</button>
                                             </div>
                                         </div>
                                     </div>
