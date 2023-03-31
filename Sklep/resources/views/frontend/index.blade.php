@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+<!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-inner">
 
         @foreach ($sliders as $key => $sliderItem)
@@ -41,6 +41,36 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+</div> -->
+
+<div class="content">
+
+    <div class="d-flex carousel-nav">
+        <a href="#" class="col active">First Tab</a>
+        <a href="#" class="col">Second Tab</a>
+        <a href="#" class="col">Third Tab</a>
+        <a href="#" class="col">Forth Tab</a>
+        <a href="#" class="col">Fifth Tab</a>
+      </div>
+
+
+    <div class="container">
+        <div class="owl-carousel owl-1">
+            @foreach ($sliders as $key => $sliderItem)
+
+            <div class="media-29101 d-md-flex w-100">
+                <div class="img">
+                    <img src="{{ asset("$sliderItem->image")}}" alt="Image" class="img-fluid">
+                </div>
+                <div class="text">
+                    <a class="category d-block mb-4" href="#">{!! $sliderItem->title !!}</a>
+                    <h2><a href="#">{!! $sliderItem->description !!}</p>
+                </div>
+            </div> <!-- .item -->
+
+            @endforeach
+        </div>
+    </div>
 </div>
 
 @endsection

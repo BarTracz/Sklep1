@@ -16,7 +16,7 @@
             <div class="card-body">
                 <form action="{{ url('admin/sliders/'.$slider->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT');
+                    @method('PUT')
                     <div class="row">
                     
                         <div class="col-md-6 mb-3">
@@ -33,6 +33,7 @@
                             <label>Image</label>
                             <input type="file" name="image" class="form-control" />
                             <img src="{{ asset("$slider->image") }}" style="with: 50px; height: 50px" alt="Slider" />
+                            @error('Image') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="col-md-6 mb-3">
                             <label>Status</label><br/>

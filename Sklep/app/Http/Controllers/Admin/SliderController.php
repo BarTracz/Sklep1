@@ -5,93 +5,120 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SliderFormRequest;
 use App\Models\Slider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class SliderController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $sliders = Slider::all();
         return view('admin.slider.index', compact('sliders'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('admin.slider.create');
     }
 
-    public function store(SliderFormRequest $request){
+    public function store(SliderFormRequest $request)
+    {
+        $validatedData = $request->validated();
 
-        $valitedData = $request->validated();
+        $slider = new Slider();
 
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() .'.'. $ext;
-            $file->move('uploads/slider/', $filename);
-            $valitedData['image'] = "uploads/slider/$filename";
+        $slider->title = $validatedData['title'];
+        $slider->description = $validatedData['description'];
+        $slider->status = $request->status == true ? '1' : '0';
+
+        if ($request->hasFile('image')) {
+            $uploadPath = 'uploads/slider/';
+            $imageFile = $request->file('image');
+            $extension = $imageFile->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $imageFile->move($uploadPath, $filename);
+            $finalImagePathName = $uploadPath . $filename;
+            //open added image
+            $img = Image::make($finalImagePathName);
+            //resize added image with constant aspect ratio
+            $img->resize(800, 600);
+            //save added image at same path as before
+            $img->save($finalImagePathName);
         }
-        
-        $valitedData['status'] = $request->status == true ? '1':'0';
 
-        Slider::create([
-            'title' => $valitedData['title'],
-            'description' => $valitedData['description'],
-            'image' => $valitedData['image'],
-            'status' => $valitedData['status'],
+        $slider->create([
+            'title' => $slider->title,
+            'description' => $slider->description,
+            'image' => $finalImagePathName,
+            'status' => $slider->status,
         ]);
 
-        return redirect('admin/sliders')->with('message','Slider Added Successfuly');
+        return redirect('admin/sliders')->with('message', 'Slider Added Successfuly');
     }
 
-    public function edit(Slider $slider){
-
+    public function edit(Slider $slider)
+    {
         return view('admin.slider.edit', compact('slider'));
     }
 
-    public function update(SliderFormRequest $request, Slider $slider){
+    public function update(SliderFormRequest $request, int $slider)
+    {
+        $validatedData = $request->validated();
 
-        $valitedData = $request->validated();
+        $slider = Slider::findOrFail($slider);
+        $slider->title = $validatedData['title'];
+        $slider->description = $validatedData['description'];
+        $slider->status = $request->status == true ? '1' : '0';
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
+            $uploadPath = 'uploads/slider/';
+            $imageFile = $request->file('image');
+            $extension = $imageFile->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $imageFile->move($uploadPath, $filename);
+            $finalImagePathName = $uploadPath . $filename;
+            //open added image
+            $img = Image::make($finalImagePathName);
+            //resize added image with constant aspect ratio
+            $img->resize(320, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            //save added image at same path as before
+            $img->save($finalImagePathName);
 
-            $destination = $slider->image;
-            if(File::exists($destination)){
-                File::delete($destination);
-            }
-
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() .'.'. $ext;
-            $file->move('uploads/slider/', $filename);
-            $valitedData['image'] = "uploads/slider/$filename";
+            $slider->update([
+                'title' => $slider->title,
+                'description' => $slider->description,
+                'image' => $finalImagePathName,
+                'status' => $slider->status,
+            ]);
         }
-        
-        $valitedData['status'] = $request->status == true ? '1':'0';
 
-        Slider::where('id', $slider->id)->update([
-            'title' => $valitedData['title'],
-            'description' => $valitedData['description'],
-            'image' => $valitedData['image'] ?? $slider->image,
-            'status' => $valitedData['status'],
+        $slider->update([
+            'title' => $slider->title,
+            'description' => $slider->description,
+            'status' => $slider->status,
         ]);
 
-        return redirect('admin/sliders')->with('message','Slider Updated Successfuly');
+
+
+        return redirect('admin/sliders')->with('message', 'Slider Updated Successfuly');
     }
 
-    public function destroy(Slider $slider) {
-        
-        if($slider->count() > 0){
+    public function destroy(Slider $slider)
+    {
+
+        if ($slider->count() > 0) {
 
             $destination = $slider->image;
-            if(File::exists($destination)){
+            if (File::exists($destination)) {
                 File::delete($destination);
             }
             $slider->delete();
-            return redirect('admin/sliders')->with('message','Slider Deleted Successfuly');
+            return redirect('admin/sliders')->with('message', 'Slider Deleted Successfuly');
         }
 
-        return redirect('admin/sliders')->with('message','Something Went Wrong');
+        return redirect('admin/sliders')->with('message', 'Something Went Wrong');
     }
 }

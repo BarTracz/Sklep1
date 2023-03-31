@@ -1,12 +1,12 @@
 HIGH PRIO
 
-dodawanie produktow z widoku produktu // zrobic zeby ilosc nie mogla przekraczac quantity
+dodawanie produktow z widoku produktu // zrobic zeby ilosc nie mogla przekraczac quantity --> WIP
 wyszukiwarka tekstowa // do zrobienia
 filtrowanie po parametrach // do zrobienia
-slidery niech maja przekierowanie do stron przedmiotow // do zrobienia
-obrazki ze sliderow rozciagaja sie na cala strone // fixnac
+slidery niech maja przekierowanie do stron przedmiotow // do zrobienia --> WIP 
+obrazki ze sliderow rozciagaja sie na cala strone // fixnac --> fixed
 
-zrobic brak mozliwosci zlozenia ordera jesli quantity == 0 // fixnac
+zrobic brak mozliwosci zlozenia ordera jesli quantity == 0 // fixnac --> WIP
 w orderze podczas walidacji niech sie wyswietla jakies info co jest nie tak // do zrobienia
 frontend order/success // do zrobienia
 
