@@ -20,9 +20,7 @@
                 <p>{!! $sliderItem->description !!}</p>
 
                 <div>
-                    <a href="#" class="btn btn-slider">
-                        Check price
-                    </a>
+                    
                 </div>
 
             </div>
@@ -46,31 +44,28 @@
 <div class="content">
 
     <div class="d-flex carousel-nav">
-        <a href="#" class="col active">First Tab</a>
-        <a href="#" class="col">Second Tab</a>
-        <a href="#" class="col">Third Tab</a>
-        <a href="#" class="col">Forth Tab</a>
-        <a href="#" class="col">Fifth Tab</a>
-      </div>
-
+        @foreach ($sliders as $key => $sliderItem)
+        <a class="col">{!! $sliderItem->title !!}</a>
+        @endforeach
+    </div>
 
     <div class="container">
         <div class="owl-carousel owl-1">
             @foreach ($sliders as $key => $sliderItem)
-
             <div class="media-29101 d-md-flex w-100">
                 <div class="img">
-                    <img src="{{ asset("$sliderItem->image")}}" alt="Image" class="img-fluid">
+                    <img src="{{ asset("$sliderItem->image") }}" alt="Image" class="img-fluid">
                 </div>
                 <div class="text">
-                    <a class="category d-block mb-4" href="#">{!! $sliderItem->title !!}</a>
-                    <h2><a href="#">{!! $sliderItem->description !!}</p>
+                    <a class="category d-block mb-4">{!! $sliderItem->title !!}</a>
+                    <h2><a>{!! $sliderItem->description !!}</p></h2>
+                    <a href="{{ asset("$sliderItem->reference") }}" class="btn btn-outline-dark btn-lg" role="button" aria-pressed="true">Check</a>
                 </div>
             </div> <!-- .item -->
-
             @endforeach
         </div>
     </div>
+
 </div>
 
 @endsection

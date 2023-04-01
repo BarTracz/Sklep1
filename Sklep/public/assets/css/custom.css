@@ -1,15 +1,18 @@
 /* Slider */
 
 body {
-    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+    font-family: "Lato";
+    font-weight: 400;
+    color: #000000;
+ }
   
   p {
-    color: #999999;
-    font-weight: 300; }
+    color: #000000;
+    font-weight: 400; }
   
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+    font-family: "Lato"; }
   
   a {
     -webkit-transition: .3s all ease;
@@ -18,8 +21,6 @@ body {
     a, a:hover {
       text-decoration: none !important; }
   
-  .content {
-    padding: 7rem 0; }
   
   h2 {
     font-size: 20px; }
@@ -127,17 +128,17 @@ body {
     border-bottom: 1px solid #ccc;
 }
 .main-navbar .top-navbar{
-    background-color: #a70000;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    background-color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .main-navbar .top-navbar .brand-name{
-    color: #fff;
+    color: #373737;
 }
 .main-navbar .top-navbar .nav-link{
-    color: #fff;
+    color: #373737;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
 }
 .main-navbar .top-navbar .dropdown-menu{
     padding: 0px 0px;
@@ -151,22 +152,22 @@ body {
 .main-navbar .top-navbar .dropdown-menu .dropdown-item i{
     width: 20px;
     text-align: center;
-    color: #a70000;
+    color: #ffffff;
     font-size: 14px;
 }
 .main-navbar .navbar{
     padding: 0px;
-    background-color: #6d0505;
+    background-color: #f6f6ff;
 }
 .main-navbar .navbar .nav-item .nav-link{
     padding: 8px 20px;
-    color: #fff;
+    color: #373737;
     font-size: 15px;
     letter-spacing: 2px;
 }
 .main-navbar .navbar .nav-item .nav-link:hover{
-    background-color: #8d0404;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 @media only screen and (max-width: 600px) {
@@ -199,7 +200,7 @@ body {
 .category-card .category-card-body h5{
     margin-bottom: 0px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     text-align: center;
 }
@@ -252,7 +253,7 @@ body {
 }
 .product-card .product-card-body .product-name{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
     color: #000;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -261,7 +262,7 @@ body {
 .product-card .product-card-body .selling-price{
     font-size: 22px;
     color: #000;
-    font-weight: 600;
+    font-weight: 400;
     margin-right: 8px;
 }
 .product-card .product-card-body .original-price{
@@ -273,7 +274,7 @@ body {
 .price-from-30-days{
     font-size: 18px;
     color: #937979;
-    font-weight: 200;
+    font-weight: 400;
 }
 .product-card .product-card-body .btn1{
     border: 1px solid;

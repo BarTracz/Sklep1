@@ -29,6 +29,11 @@
                             @error('Description') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="col-md-6 mb-3">
+                            <label>Reference</label>
+                            <textarea name="reference" class="form-control" rows="1"></textarea>
+                            @error('Reference') <small class="text-danger">{{ $message }}</small>@enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
                             <label>Image</label>
                             <input type="file" name="image" class="form-control" />
                         </div>

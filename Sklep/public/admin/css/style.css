@@ -8684,7 +8684,7 @@ hr:not([size]) {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 200;
   line-height: 1.2;
 }
 
@@ -9075,12 +9075,12 @@ progress {
 
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .display-1 {
   font-size: calc(1.625rem + 4.5vw);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -9092,7 +9092,7 @@ progress {
 
 .display-2 {
   font-size: calc(1.575rem + 3.9vw);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -9104,7 +9104,7 @@ progress {
 
 .display-3 {
   font-size: calc(1.525rem + 3.3vw);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -9116,7 +9116,7 @@ progress {
 
 .display-4 {
   font-size: calc(1.475rem + 2.7vw);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -9128,7 +9128,7 @@ progress {
 
 .display-5 {
   font-size: calc(1.425rem + 2.1vw);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -9140,7 +9140,7 @@ progress {
 
 .display-6 {
   font-size: calc(1.375rem + 1.5vw);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -19437,7 +19437,7 @@ input:focus {
   font-family: 'Roboto';
   src: url("../fonts/Roboto/Roboto-Light.eot");
   src: url("../fonts/Roboto/Roboto-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Light.woff") format("woff"), url("../fonts/Roboto/Roboto-Light.ttf") format("truetype");
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -19814,7 +19814,7 @@ code {
   padding: 5px;
   color: #ff4747;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.875rem;
   border-radius: 4px;
 }
@@ -22241,7 +22241,7 @@ dl li {
   border: 1px solid rgba(151, 151, 151, 0.18);
   color: #08113b;
   white-space: nowrap;
-  font-weight: 300;
+  font-weight: 400;
   padding: 1.1rem 0.9375rem;
 }
 

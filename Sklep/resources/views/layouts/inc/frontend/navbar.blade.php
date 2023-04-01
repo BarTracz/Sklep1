@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                    <h5 class="brand-name">Z-KOM</h5>
+                    <img src="/XD-kom.png" width="100%" height="100%">
                 </div>
                 <div class="col-md-5 my-auto">
                     <form role="search">
@@ -68,7 +68,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                Site-app
+                👌 Muka, gdzie nie musisz tam nie sprawdzasz
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

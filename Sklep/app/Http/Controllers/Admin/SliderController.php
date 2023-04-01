@@ -30,6 +30,7 @@ class SliderController extends Controller
 
         $slider->title = $validatedData['title'];
         $slider->description = $validatedData['description'];
+        $slider->reference = $validatedData['reference'];
         $slider->status = $request->status == true ? '1' : '0';
 
         if ($request->hasFile('image')) {
@@ -50,6 +51,7 @@ class SliderController extends Controller
         $slider->create([
             'title' => $slider->title,
             'description' => $slider->description,
+            'reference' => $slider->reference,
             'image' => $finalImagePathName,
             'status' => $slider->status,
         ]);
@@ -81,9 +83,7 @@ class SliderController extends Controller
             //open added image
             $img = Image::make($finalImagePathName);
             //resize added image with constant aspect ratio
-            $img->resize(320, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+            $img->resize(800, 600);
             //save added image at same path as before
             $img->save($finalImagePathName);
 
@@ -111,9 +111,8 @@ class SliderController extends Controller
 
         if ($slider->count() > 0) {
 
-            $destination = $slider->image;
-            if (File::exists($destination)) {
-                File::delete($destination);
+            if (File::exists($slider->image)) {
+                File::delete($slider->image);
             }
             $slider->delete();
             return redirect('admin/sliders')->with('message', 'Slider Deleted Successfuly');

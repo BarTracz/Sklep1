@@ -23,6 +23,7 @@
                             <th>ID</th>
                             <th>Title</th>
                             <th>Description</th>
+                            <th>Reference</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -34,6 +35,7 @@
                                 <td>{{ $slider->id }}</td>
                                 <td>{{ $slider->title }}</td>
                                 <td>{{ $slider->description }}</td>
+                                <td>{{ $slider->reference }}</td>
                                 <td>
                                     <img src="{{ asset("$slider->image") }}" style="width: 70px; height: 70px" alt="Slider">
                                 </td>

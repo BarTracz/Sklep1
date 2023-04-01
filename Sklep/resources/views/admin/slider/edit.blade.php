@@ -30,9 +30,14 @@
                             @error('Description') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="col-md-6 mb-3">
+                            <label>Reference</label>
+                            <textarea name="reference" class="form-control" rows="1">{{ $slider->reference }}</textarea>
+                            @error('Reference') <small class="text-danger">{{ $message }}</small>@enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
                             <label>Image</label>
                             <input type="file" name="image" class="form-control" />
-                            <img src="{{ asset("$slider->image") }}" style="with: 50px; height: 50px" alt="Slider" />
+                            <img src="{{ asset($slider->image) }}" style="with: 50px; height: 50px" alt="Slider" />
                             @error('Image') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="col-md-6 mb-3">

@@ -42,7 +42,7 @@
                                         <div class="quantity">
                                             <div class="input-group">
                                                 <span class="btn btn1" wire:click="decrementQuantity({{ $cartItem['quantity'] }},{{ $cartItem['product'] }})"><i class="fa fa-minus"></i></span>
-                                                <input type="text" value="{{ $cartItem['quantity'] }}" class="input-quantity" />
+                                                <input type="text" value="{{ $cartItem['quantity'] }}" readonly class="input-quantity" />
                                                 <span class="btn btn1" wire:click="incrementQuantity({{ $cartItem['quantity'] }},{{ $cartItem['product'] }})"><i class="fa fa-plus"></i></span>
                                             </div>
                                         </div>
@@ -74,6 +74,7 @@
                         
                     </div>
                     <div class="col-md-4 mt-3">
+                        @if(count($cart) > 0)
                         <div class="shadow-sm bg-white p-3">
                             <h4>Total:
                                 <span class="float-end">{{ $totalPrice }}</span>
@@ -81,6 +82,7 @@
                             <hr>
                             <a href="{{ url('/order')}}" class="btn btn-warning w-100">Checkout</a>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

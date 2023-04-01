@@ -17,6 +17,7 @@ class WishlistShow extends Component
             'status' => 200
         ]);
     }
+    
     public function render()
     {
         $wishlist = Wishlist::where('user_id', auth()->user()->id)->get();

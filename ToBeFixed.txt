@@ -1,12 +1,12 @@
 HIGH PRIO
 
-dodawanie produktow z widoku produktu // zrobic zeby ilosc nie mogla przekraczac quantity --> WIP
+dodawanie produktow z widoku produktu // zrobic zeby ilosc nie mogla przekraczac quantity --> DONE -- problem przy spamowaniu, może przekroczyć zakres
 wyszukiwarka tekstowa // do zrobienia
 filtrowanie po parametrach // do zrobienia
-slidery niech maja przekierowanie do stron przedmiotow // do zrobienia --> WIP 
-obrazki ze sliderow rozciagaja sie na cala strone // fixnac --> fixed
+slidery niech maja przekierowanie do stron przedmiotow // do zrobienia --> DONE
+obrazki ze sliderow rozciagaja sie na cala strone // fixnac --> DONE
 
-zrobic brak mozliwosci zlozenia ordera jesli quantity == 0 // fixnac --> WIP
+zrobic brak mozliwosci zlozenia ordera jesli quantity == 0 // fixnac --> DONE -- chyba że się razem z dodawaniem z widoku to zmiesza
 w orderze podczas walidacji niech sie wyswietla jakies info co jest nie tak // do zrobienia
 frontend order/success // do zrobienia
 

@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Session;
 
 class View extends Component
 {
-    public $product, $parameters, $attributes, $lowest_price_from_30_days, $quantityCount = 1;
+    public $product, $parameters, $attributes, $lowest_price_from_30_days, $count = 1;
 
     public function addToWishList($productId)
     {
         if(Auth::check())
         {
-            if(WIshlist::where('user_id',auth()->user()->id)->where('product_id', $productId)->exists())
+            if(Wishlist::where('user_id',auth()->user()->id)->where('product_id', $productId)->exists())
             {
                 $this->dispatchBrowserEvent('message', [
                     'text' => 'Already added to wishlist',
@@ -52,6 +52,35 @@ class View extends Component
             ]);
             return false;
         }
+        
+    }
+
+    public function increment(int $quantity, int $count)
+    {
+        if($quantity > $count) {
+        $this->count++;
+        }
+        else {
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'No more products in stock',
+                'type' => 'info',
+                'status' => 401
+            ]);
+        }
+    }
+
+    public function decrement(int $count)
+    {
+        if($count > 1) {
+            $this->count--;
+            }
+            else {
+                $this->dispatchBrowserEvent('message', [
+                    'text' => 'Can`t add 0 products',
+                    'type' => 'info',
+                    'status' => 401
+                ]);
+            }
     }
 
     public function addToCart(Request $request, $product)
@@ -63,8 +92,8 @@ class View extends Component
 
             $cart[$product->id] = [
                 'product' => $product,
-                'quantity' => $this->quantityCount,
-                'price' => $product->price * $this->quantityCount
+                'quantity' => $this->count,
+                'price' => $product->price * $this->count
             ];
             
             $request->session()->put('cart', $cart);
@@ -79,18 +108,6 @@ class View extends Component
                 'status' => 401
             ]);
             return false;
-        }
-    }
-
-    public function decrementQuantity() {
-        if($this->quantityCount > 1) {
-        $this->quantityCount--;
-        }
-    }
-
-    public function incrementQuantity() {
-        if($this->quantityCount < 10) {
-        $this->quantityCount++;
         }
     }
 
