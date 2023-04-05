@@ -8,7 +8,9 @@ body {
   
   p {
     color: #000000;
-    font-weight: 400; }
+    font-weight: 400;
+    font-size: 14px;
+}
   
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -157,7 +159,7 @@ body {
 }
 .main-navbar .navbar{
     padding: 0px;
-    background-color: #f6f6ff;
+    background-color: #eaeaea;
 }
 .main-navbar .navbar .nav-item .nav-link{
     padding: 8px 20px;
@@ -345,7 +347,7 @@ body {
     text-decoration: none;
 }
 .footer-area .footer-heading{
-    font-size: 24px;
+    font-size: 14px;
     color: #fff;
 }
 .footer-area .footer-underline{

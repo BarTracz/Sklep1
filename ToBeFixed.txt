@@ -1,20 +1,35 @@
-HIGH PRIO
+----------HIGH PRIO----------
 
-dodawanie produktow z widoku produktu // zrobic zeby ilosc nie mogla przekraczac quantity --> DONE -- problem przy spamowaniu, może przekroczyć zakres
-wyszukiwarka tekstowa // do zrobienia
 filtrowanie po parametrach // do zrobienia
-slidery niech maja przekierowanie do stron przedmiotow // do zrobienia --> DONE
-obrazki ze sliderow rozciagaja sie na cala strone // fixnac --> DONE
 
-zrobic brak mozliwosci zlozenia ordera jesli quantity == 0 // fixnac --> DONE -- chyba że się razem z dodawaniem z widoku to zmiesza
 w orderze podczas walidacji niech sie wyswietla jakies info co jest nie tak // do zrobienia
+
 frontend order/success // do zrobienia
 
-MID PRIO
+mailer - np. potwierdzanie emaila
+
+cache
+
+lokalizacja
+
+----------------------------
+
+
+----------MID PRIO----------
 
 edytowanie produktow // niech wypelnia odrazu pola danymi produktu ktory edytujemy 
 
-LOW PRIO
+usunięcie pojawiającej się kreski na st00pce po przesunieciu slidera
+
+więcej ładnego cssa, mniej brzydkiego cssa w każdym miejscu na stronie + admin panelu
+
+przyciski od zmienia stron podczas wyszukiwania są komicznie ogromne
+
+----------------------------
+
+
+----------LOW PRIO----------
 
 kategorie // mozna przeniesc na pasek zamiast osobnego blade'a
-fix widoku podczas filtrowania produktow // kleja sie do siebie divy i ogolnie nie fajnie , dodac jakis spacing chociaz --> DONE, przy widoku listy produktów divy i opcje filtrowania juz sie nie kleja(możnaby ewentualnie zrobic to jakos ładniej)
+
+----------------------------

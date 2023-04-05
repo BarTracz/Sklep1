@@ -15,10 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class, 'index']);
-Route::get('/collections',  [App\Http\Controllers\Frontend\FrontendController::class, 'categories']);
-Route::get('/collections/{category_name}', [App\Http\Controllers\Frontend\FrontendController::class, 'products']);
-Route::get('/collections/{category_name}/{product_id}', [App\Http\Controllers\Frontend\FrontendController::class, 'productView']);
+Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
+
+    Route::get('/', 'index');
+    Route::get('/collections', 'categories');
+    Route::get('/collections/{category_name}', 'products');
+    Route::get('/collections/{category_name}/{product_id}', 'productView');
+
+    Route::get('/search', 'searchProducts');
+});
 
 Route::get('wishlist', [App\Http\Controllers\Frontend\WishlistController::class, 'index']);
 Route::get('cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
