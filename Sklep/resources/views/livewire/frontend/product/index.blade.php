@@ -24,7 +24,8 @@
             
 
     </div>
-    <div class="col-md-12">
+    <div>
+
         <div class="row">
             @forelse($products as $productItem)
             

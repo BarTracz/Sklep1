@@ -17,4 +17,4 @@ edytowanie produktow // niech wypelnia odrazu pola danymi produktu ktory edytuje
 LOW PRIO
 
 kategorie // mozna przeniesc na pasek zamiast osobnego blade'a
-fix widoku podczas filtrowania produktow // kleja sie do siebie divy i ogolnie nie fajnie , dodac jakis spacing chociaz
+fix widoku podczas filtrowania produktow // kleja sie do siebie divy i ogolnie nie fajnie , dodac jakis spacing chociaz --> DONE, przy widoku listy produktów divy i opcje filtrowania juz sie nie kleja(możnaby ewentualnie zrobic to jakos ładniej)

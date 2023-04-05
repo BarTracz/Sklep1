@@ -32,7 +32,7 @@
             @yield('content')
         </main>
 
-        <!-- include('layouts.inc.frontend.footer') -->
+        @include('layouts.inc.frontend.footer')
     </div>
 
     <!-- Scripts -->

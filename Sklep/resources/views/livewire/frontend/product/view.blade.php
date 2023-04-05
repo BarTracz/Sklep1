@@ -20,9 +20,7 @@
                             {{ $product->name }}
                         </h4>
                         <hr>
-                        <p class="product-path">
-                            Home / {{ $product->category_name }} / {{ $product->name }}
-                        </p>
+                    
                         <div>
                             <span class="selling-price">${{ $product->price }}</span>
                             @if($lowest_price_from_30_days>0)

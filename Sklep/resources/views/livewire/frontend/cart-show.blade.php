@@ -30,13 +30,13 @@
                                     <div class="col-md-6 my-auto">
                                         <a href="">
                                             <label class="product-name">
-                                            <img src="{{ $cartItem['product']->productImages[0]->image }}" style="width: 50px; height: 50px" alt="{{ $cartItem['product']->name }}">
+                                            <img src="{{ $cartItem['product']->productImages[0]->image }}" class="product-shopping-image" style="width: 50px; height: 50px" alt="{{ $cartItem['product']->name }}">
                                                 {{ $cartItem['product']->name  }}
                                             </label>
                                         </a>
                                     </div>
                                     <div class="col-md-2 my-auto">
-                                        <label class="price"> {{ $cartItem['product']->price }}</label>
+                                        <label class="price"> {{ $cartItem['product']->price }}$</label>
                                     </div>
                                     <div class="col-md-2 col-7 my-auto">
                                         <div class="quantity">
@@ -77,7 +77,7 @@
                         @if(count($cart) > 0)
                         <div class="shadow-sm bg-white p-3">
                             <h4>Total:
-                                <span class="float-end">{{ $totalPrice }}</span>
+                                <span class="float-end">{{ $totalPrice }}$</span>
                             </h4>
                             <hr>
                             <a href="{{ url('/order')}}" class="btn btn-warning w-100">Checkout</a>
