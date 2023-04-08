@@ -2,11 +2,7 @@
 
 filtrowanie po parametrach // do zrobienia
 
-w orderze podczas walidacji niech sie wyswietla jakies info co jest nie tak // do zrobienia
-
-frontend order/success // do zrobienia
-
-mailer - np. potwierdzanie emaila
+mailer // zrobiony do ordera
 
 cache
 

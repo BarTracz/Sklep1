@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\OrderFormRequest;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderList;
+use App\Mail\OrderMail;
 
 class OrderController extends Controller
 {
@@ -23,6 +25,11 @@ class OrderController extends Controller
         }
 
         return $this->totalPrice;
+    }
+
+    public function sendMail(){
+        Mail::to(auth()->user()->email)
+            ->send(new OrderMail());
     }
 
     public function store(OrderFormRequest $request){
@@ -77,7 +84,7 @@ class OrderController extends Controller
     }
 
     public function success() {
-
+        $this->sendMail();
         return view('frontend.order.success');
     }
 }

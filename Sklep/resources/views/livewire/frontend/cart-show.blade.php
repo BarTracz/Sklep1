@@ -24,7 +24,8 @@
                                 </div>
                             </div>
                             
-                            @forelse ($cart as $cartItem)
+                            @if ($cart != null)
+                            @foreach ($cart as $cartItem)
                             <div class="cart-item">
                                 <div class="row">
                                     <div class="col-md-6 my-auto">
@@ -62,9 +63,10 @@
                                 </div>
                             </div>
 
-                            @empty
+                            @endforeach
+                            @else
                                 <h4>No items in Cart</h4>
-                            @endforelse 
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -74,6 +76,7 @@
                         
                     </div>
                     <div class="col-md-4 mt-3">
+                    @if ($cart != null)
                         @if(count($cart) > 0)
                         <div class="shadow-sm bg-white p-3">
                             <h4>Total:
@@ -83,6 +86,7 @@
                             <a href="{{ url('/order')}}" class="btn btn-warning w-100">Checkout</a>
                         </div>
                         @endif
+                    @endif
                     </div>
                 </div>
             </div>

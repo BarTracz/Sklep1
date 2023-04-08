@@ -81,8 +81,10 @@ class CartShow extends Component
         $cart = Session::get('cart');
         $this->totalPrice=0;
 
-        foreach($cart as $item){
-            $this->totalPrice += $item['price'];
+        if($cart != null){
+            foreach($cart as $item){
+                $this->totalPrice += $item['price'];
+            }
         }
 
         return $this->totalPrice;
