@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
 
     Route::get('/', 'index');

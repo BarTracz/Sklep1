@@ -10,16 +10,16 @@
                             <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h4>Products</h4>
+                                        <h4>{{ __('Products') }}</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Price</h4>
+                                        <h4>{{ __('Price') }}</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Quantity</h4>
+                                        <h4>{{ __('Quantity') }}</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <h4>Remove</h4>
+                                        <h4>{{ __('Remove') }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -52,10 +52,10 @@
                                         <div class="remove">
                                             <button type="button" wire:click="removeCartItem({{ $cartItem['product']->id }})" class="btn btn-danger btn-sm">
                                                 <span wire:loading.remove wire:target="removeCartItem({{ $cartItem['product']->id }})">
-                                                    <i class="fa fa-trash"></i> Remove
+                                                    <i class="fa fa-trash"></i> {{ __('Remove') }}
                                                 </span>
                                                 <span wire:loading wire:target="removeCartItem({{ $cartItem['product']->id }})">
-                                                    <i class="fa fa-trash"></i> Removing
+                                                    <i class="fa fa-trash"></i> {{ __('Removing') }}
                                                 </span>
                                             </a>
                                         </div>
@@ -65,7 +65,7 @@
 
                             @endforeach
                             @else
-                                <h4>No items in Cart</h4>
+                                <h4>{{ __('No items in cart') }}</h4>
                             @endif
                         </div>
                     </div>
@@ -79,11 +79,11 @@
                     @if ($cart != null)
                         @if(count($cart) > 0)
                         <div class="shadow-sm bg-white p-3">
-                            <h4>Total:
+                            <h4>{{ __('Total') }}:
                                 <span class="float-end">{{ $totalPrice }}$</span>
                             </h4>
                             <hr>
-                            <a href="{{ url('/order')}}" class="btn btn-warning w-100">Checkout</a>
+                            <a href="{{ url('/order')}}" class="btn btn-warning w-100">{{ __('Checkout') }}</a>
                         </div>
                         @endif
                     @endif

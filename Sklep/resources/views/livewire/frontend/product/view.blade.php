@@ -31,9 +31,9 @@
                         </div>
                         <div>
                             @if($product->quantity)
-                            <label class="btn-sm py-1 px-1 mt-2 text-white bg-success">In Stock</label>
+                            <label class="btn-sm py-1 px-1 mt-2 text-white bg-success">{{ __('In stock') }}</label>
                             @else
-                            <label class="btn-sm py-1 px-1 mt-2 text-white bg-danger">Out of Stock</label>
+                            <label class="btn-sm py-1 px-1 mt-2 text-white bg-danger">{{ __('Out of stock') }}</label>
                             @endif
                         </div>
                         <div class="mt-2">
@@ -46,19 +46,19 @@
                         <div class="mt-2">
                         <button type="button" wire:click="addToCart({{ $product }})" class="btn btn1"> 
                                 <span wire:loading.remove wire:target="addToCart">
-                                    <i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                                    <i class="fa fa-shopping-cart"></i> {{ __('Add to cart') }}</a>
                                     </span>
-                                <span wire:loading wire:target="addToCart">Adding...</span>
+                                <span wire:loading wire:target="addToCart">{{ __('Adding') }}...</span>
                             </button>
                             <button type="button" wire:click="addToWishList({{ $product->id }})" class="btn btn1"> 
                                 <span wire:loading.remove wire:target="addToWishList">
-                                    <i class="fa fa-heart"></i> Add To Wishlist 
+                                    <i class="fa fa-heart"></i> {{ __('Add to wishlist') }}
                                 </span>
-                                <span wire:loading wire:target="addToWishList">Adding...</span>
+                                <span wire:loading wire:target="addToWishList">{{ __('Adding') }}...</span>
                             </button>
                         </div>
                         <div class="mt-3">
-                            <h5 class="mb-0">Parameters</h5>
+                            <h5 class="mb-0">{{ __('Parameters') }}</h5>
                             <p>
                                 @php
                                 $count = count($attributes);
@@ -97,7 +97,7 @@
                 <div class="col-md-12 mt-3">
                     <div class="card">
                         <div class="card-header bg-white">
-                            <h4>Description</h4>
+                            <h4>{{ __('Description') }}</h4>
                         </div>
                         <div class="card-body">
                             <p>

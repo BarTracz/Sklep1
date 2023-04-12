@@ -1,1 +1,1 @@
-Your order has been placed successfully!
+{{ __('Your order has been placed successfully') }}!

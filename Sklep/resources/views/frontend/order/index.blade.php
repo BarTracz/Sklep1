@@ -19,26 +19,26 @@
 
     <div class="py-3 py-md-4 checkout">
         <div class="container">
-            <h4>Checkout</h4>
+            <h4>{{ __('Checkout') }}</h4>
             <hr>
 
             <div class="row">
                 <div class="col-md-12 mb-4">
                     <div class="shadow bg-white p-3">
                         <h4 class="text-dark">
-                            Item Total Amount :
+                            {{ __('Item total amount') }} :
                             <span class="float-end">{{ $totalPrice }}$</span>
                         </h4>
                         <hr>
-                        <small>* Items will be delivered in 3 - 5 days.</small>
+                        <small>* {{ __('Items will be delivered in 3 - 5 days') }}.</small>
                         <br/>
-                        <small>* Tax and other charges are included ?</small>
+                        <small>* {{ __('Tax and other charges are included') }}?</small>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="shadow bg-white p-3">
                         <h4 class="text-dark">
-                            Basic Information
+                            {{ __('Basic information') }}
                         </h4>
                         <hr>
 
@@ -46,38 +46,38 @@
                         @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label>First Name</label>
-                                    <input type="text" name="firstname" class="form-control" placeholder="Enter First Name" />
+                                    <label>{{ __('First Name') }}</label>
+                                    <input type="text" name="firstname" class="form-control" placeholder="{{ __('Enter first name') }}" />
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>Last Name</label>
-                                    <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name" />
+                                    <label>{{ __('Last Name') }}</label>
+                                    <input type="text" name="lastname" class="form-control" placeholder="{{ __('Enter last name') }}" />
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>Phone Number</label>
-                                    <input type="number" name="phone" class="form-control" placeholder="Enter Phone Number" />
+                                    <label>{{ __('Phone Number') }}</label>
+                                    <input type="number" name="phone" class="form-control" placeholder="{{ __('Enter phone number') }}" />
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>Zip-code</label>
-                                    <input type="text" name="zipcode" class="form-control" placeholder="Enter Zip-code" />
+                                    <label>{{ __('Zip-code') }}</label>
+                                    <input type="text" name="zipcode" class="form-control" placeholder="{{ __('Enter zip-code') }}" />
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>City</label>
-                                    <input type="text" name="city" class="form-control" placeholder="Enter City">
+                                    <label>{{ __('City') }}</label>
+                                    <input type="text" name="city" class="form-control" placeholder="{{ __('Enter city') }}">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>Street</label>
-                                    <input type="text" name="street" class="form-control" placeholder="Enter Street">
+                                    <label>{{ __('Street') }}</label>
+                                    <input type="text" name="street" class="form-control" placeholder="{{ __('Enter street') }}">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label>House Number</label>
-                                    <input type="text" name="house" class="form-control" placeholder="Enter House Number">
+                                    <label>{{ __('House Number') }}</label>
+                                    <input type="text" name="house" class="form-control" placeholder="{{ __('Enter house number') }}">
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label>Select Payment Mode: </label>
+                                    <label>{{ __('Select payment method') }}: </label>
                                     <div class="d-md-flex align-items-start">
                                         <div class="nav col-md-3 flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                            <button class="nav-link fw-bold bg-dark text-white" id="cashOnDeliveryTab-tab" data-bs-toggle="pill" data-bs-target="#cashOnDeliveryTab" type="button" role="tab" aria-controls="cashOnDeliveryTab" aria-selected="true">Cash on Delivery</button>
+                                            <button class="nav-link fw-bold bg-dark text-white" id="cashOnDeliveryTab-tab" data-bs-toggle="pill" data-bs-target="#cashOnDeliveryTab" type="button" role="tab" aria-controls="cashOnDeliveryTab" aria-selected="true">{{ __('Cash on delivery') }}</button>
                                         </div>
                                         <div class="tab-content col-md-9" id="v-pills-tabContent">
                                                 @if ($errors->any())
@@ -90,9 +90,9 @@
                                                     </div>
                                                 @endif
                                             <div class="tab-pane fade" id="cashOnDeliveryTab" role="tabpanel" aria-labelledby="cashOnDeliveryTab-tab" tabindex="0">
-                                                <h6>Cash on Delivery Mode</h6>
+                                                <h6>{{ __('ash on Delivery Mode') }}</h6>
                                                 <hr/>
-                                                <button type="submit" class="btn btn-primary bg-dark">Place Order (Cash on Delivery)</button>
+                                                <button type="submit" class="btn btn-primary bg-dark">{{ __('Place Order') }} ({{ __('Cash on Delivery') }})</button>
                                             </div>
                                         </div>
                                     </div>

@@ -1,7 +1,7 @@
 <div>
     <div class="brands">            
                 <div class="card">
-                    <div class="card-header"><h5>Brands</h5></div>
+                    <div class="card-header"><h5>{{ __('Brands') }}</h5></div>
                     <div class="card-body">
                         @foreach ($brands as $brand)
                         <label class="d-block">
@@ -11,13 +11,13 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header"><h5>Price</h5></div>
+                    <div class="card-header"><h5>{{ __('Price') }}</h5></div>
                     <div class="card-body">
                         <label class="d-block">
-                            <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" />Hight to Low
+                            <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" />{{ __('High to low') }}
                         </label>
                         <label class="d-block">
-                            <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" />Low to High
+                            <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" />{{ __('Low to high') }}
                         </label>
                     </div>
                 </div>
@@ -32,9 +32,9 @@
                 <div class="product-card">
                     <div class="product-card-img">
                         @if ($productItem->quantity > 0)
-                        <label class="stock bg-success">In Stock</label>
+                        <label class="stock bg-success">{{ __('In stock') }}</label>
                         @else
-                        <label class="stock bg-danger">Out of Stock</label>
+                        <label class="stock bg-danger">{{ __('Out of stock') }}</label>
                         @endif
                         @if ($productItem->productImages->count() > 0)
                         <img src="{{ asset($productItem->productImages[0]->image) }}" alt="{{ $productItem->name }}">
@@ -53,7 +53,7 @@
                         </div>
                         <div class="mt-2">
                             <a href="{{ url('/collections/'.$productItem->category_name.'/'.$productItem->id)}}"
-                                class="btn btn1"> View </a>
+                                class="btn btn1">{{ __('View') }}</a>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
             <div class="col-md-12">
                 <div class="p-2">
                     <h4>
-                        No Products Available for {{ $category_name }}
+                        {{ __('No products available for') }} {{ $category_name }}
                     </h4>
                 </div>
             </div>

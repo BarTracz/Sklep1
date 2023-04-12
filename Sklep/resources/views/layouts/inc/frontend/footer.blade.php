@@ -2,7 +2,7 @@
     <div class="container text-center tex-md-left">
         <div class="row text-center text-md-left">
             <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">About us</h5>
+                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">{{ __('About us') }}</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                 </p>
@@ -10,39 +10,39 @@
             </div>
 
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">Products</h5>
+                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">{{ __('Products') }}</h5>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">PCs</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('Computers') }}</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Laptops</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('Laptops') }}</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Mobile</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('Mobiles') }}</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Smartwatches</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('Smartwatches') }}</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Consoles</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('Consoles') }}</a>
                 </p>
             </div>
 
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">Useful links</h5>
+                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">{{ __('Useful links') }}</h5>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">FAQ</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('FAQ') }}</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Shipping Rates</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('Shipping rates') }}</a>
                 </p>
                 <p>
-                    <a href="#" class="text-dark" style="text-decoration: none;">Help</a>
+                    <a href="#" class="text-dark" style="text-decoration: none;">{{ __('Help') }}</a>
                 </p>
             </div>
 
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">Contact</h5>
+                <h5 class="text-uppercase mb-4 font-weight-bold text-dark">{{ __('Contact') }}</h5>
                 <p class="text-dark">
                     <i class="fa fa-home mr-3"></i> Legnica, Jana Pawła 4
                 </p>
@@ -61,7 +61,7 @@
 
             <div class="row align-items-center">
                 <div class="col-md-7 col-lg-8">
-                    <p>Copyright 2023 All rights reserves by:
+                    <p>{{ __('Copyright 2023 All rights reserves by:') }}
                         <a href="#" style="text-decoration: none;">
                             <strong class="text-dark">XD-KOM</strong>
                         </a>

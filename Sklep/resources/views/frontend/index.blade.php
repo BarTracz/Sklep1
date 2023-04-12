@@ -27,7 +27,7 @@
                 <div class="text">
                     <a class="category d-block mb-4">{!! $sliderItem->title !!}</a>
                     <h2><a>{!! $sliderItem->description !!}</p></h2>
-                    <a href="{{ asset("$sliderItem->reference") }}" class="btn btn-outline-dark btn-lg" role="button" aria-pressed="true">Check</a>
+                    <a href="{{ asset("$sliderItem->reference") }}" class="btn btn-outline-dark btn-lg" role="button" aria-pressed="true">{{ __('Check') }}</a>
                 </div>
             </div> <!-- .item -->
             @endforeach
