@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+<head>
+    <title>XD-KOM Home Page</title>
+</head>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

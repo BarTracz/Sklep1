@@ -2,8 +2,6 @@
 
 filtrowanie po parametrach // do zrobienia
 
-mailer // zrobiony do ordera
-
 cache
 
 lokalizacja
@@ -26,6 +24,6 @@ przyciski od zmienia stron podczas wyszukiwania są komicznie ogromne
 
 ----------LOW PRIO----------
 
-kategorie // mozna przeniesc na pasek zamiast osobnego blade'a
+
 
 ----------------------------

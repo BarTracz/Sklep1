@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>XD-KOM</title>
+    <meta name="description" content="XD-KOM provides a large selection of electronic devices for sale.">
+    <meta name="keywords" content="Electronics, Computers, Mobiles, Laptops, Smartwatches, Consoles, XD-KOM">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

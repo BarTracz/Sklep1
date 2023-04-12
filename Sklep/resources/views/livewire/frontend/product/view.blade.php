@@ -17,7 +17,9 @@
                 <div class="col-md-7 mt-3">
                     <div class="product-view">
                         <h4 class="product-name">
+                            <strong>
                             {{ $product->name }}
+                            </strong>
                         </h4>
                         <hr>
                     

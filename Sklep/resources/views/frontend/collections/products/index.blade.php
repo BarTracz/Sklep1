@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+<head>
+    <title>XD-KOM - Products</title>
+    <meta name="description" content="XD-KOM Products. Search for pcs, mobiles, laptops, smartwatches and consoles.">
+</head>
+
 @section('content')
 
 <div class="py-3 py-md-5 bg-light">
@@ -8,7 +13,7 @@
             <div class="col-md-12">
                 <h4 class="mb-4">Our Products</h4>
             </div>
-            <livewire:frontend.product.index :products="$products" :brands="$brands" :category_name="$category_name" />
+            <livewire:frontend.product.index :products="$products" :brands="$brands" :category_name="$category_name" :imgs="$imgs" />
         </div>
     </div>
 </div>

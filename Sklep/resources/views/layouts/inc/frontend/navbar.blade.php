@@ -78,7 +78,19 @@
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/collections') }}">All Categories</a>
+                        <a class="nav-link" href="{{ url('/collections/pcs') }}">Computers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/collections/laptops') }}">Laptops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/collections/mobiles') }}">Mobiles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/collections/smartwatches') }}">Smartwatches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/collections/consoles') }}">Consoles</a>
                     </li>
                 </ul>
             </div>

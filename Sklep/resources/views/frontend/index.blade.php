@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+<head>
+    <title>XD-KOM - Home Page</title>
+    <meta name="description" content="XD-KOM Home Page. Select the category or look through our most popular products">
+</head>
+
 @section('title', 'Home Page')
 
 @section('content')

@@ -14,6 +14,7 @@ use App\Models\Old_prices;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class FrontendController extends Controller
 {
@@ -65,7 +66,20 @@ class FrontendController extends Controller
                     }
                 }
             }
-            return view('frontend.collections.products.index', compact('products','brands','category_name'));
+
+            $imgs = Cache::get('imgs');
+            if($imgs == null){
+                foreach($product as $item){
+                    if($imgs[$item->id] == null && $item->productImages->count() > 0){
+                        $imgs[$item->id] = $item->productImages[0]->image;
+                    }
+                }
+                Cache::put('imgs', $imgs);
+                $imgs = Cache::get('imgs');
+            }
+
+
+            return view('frontend.collections.products.index', compact('products','brands','category_name','imgs'));
         }
         else {
             return redirect()->back();
