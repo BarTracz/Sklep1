@@ -2,9 +2,7 @@
 
 filtrowanie po parametrach // do zrobienia
 
-cache
-
-lokalizacja
+slider i odnoszenie do produktu // poprawic
 
 ----------------------------
 

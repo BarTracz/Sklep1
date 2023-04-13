@@ -5,24 +5,23 @@ namespace App\Http\Livewire\Frontend;
 use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Cache;
 
 class CartShow extends Component
 {
 
     public $totalPrice;
-    public function removeCartItem(Request $request, int $item_id) {
+    public function removeCartItem(int $item_id) {
 
-        $cart = session()->get('cart');
+        $cart = Cache::get('cart');
         unset($cart[$item_id]);
 
-        $request->session()->put('cart', $cart);
-        $request->session()->save();
+        Cache::put('cart', $cart);
 
        return false;
     }
 
-    public function decrementQuantity(Request $request, $item_quantity, $item) {
+    public function decrementQuantity($item_quantity, $item) {
         
         $product = Product::where('id', $item['id'])->first();
 
@@ -32,18 +31,17 @@ class CartShow extends Component
         $quantity--;
         }
         
-        $cart = session()->get('cart');
+        Cache::get('cart');
         $cart[$item['id']] = [
             'product' => $product,
             'quantity' => $quantity,
             'price' => $item['price'] * $quantity
         ];
-        $request->session()->put('cart', $cart);
-        $request->session()->save();
+        Cache::put('cart', $cart);
         
     }
 
-    public function incrementQuantity(Request $request, $item_quantity, $item) {
+    public function incrementQuantity($item_quantity, $item) {
 
         $product = Product::where('id', $item['id'])->first();
 
@@ -62,23 +60,22 @@ class CartShow extends Component
             }
         }
 
-        $cart = session()->get('cart');
+        $cart = Cache::get('cart');
         $cart[$item['id']] = [
             'product' => $product,
             'quantity' => $quantity,
             'price' => $item['price'] * $quantity
         ];
-        $request->session()->put('cart', $cart);
-        $request->session()->save();
+        Cache::put('cart', $cart);
 
     }
 
     public function showCart(){
-        dd(Session::get('cart'));
+        dd(Cache::get('cart'));
     }
 
     public function totalPrice(){
-        $cart = Session::get('cart');
+        $cart = Cache::get('cart');
         $this->totalPrice=0;
 
         if($cart != null){
@@ -92,7 +89,7 @@ class CartShow extends Component
 
     public function render()
     {
-        $cart = Session::get('cart');
+        $cart = Cache::get('cart');
         $this->totalPrice = $this->totalPrice();
         
         return view('livewire.frontend.cart-show',[
