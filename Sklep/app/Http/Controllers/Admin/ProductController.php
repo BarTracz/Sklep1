@@ -47,7 +47,7 @@ class ProductController extends Controller
         $product->quantity = $validatedData['quantity'];
         $product->brand_id = $validatedData['brand_id'];
         $product->status = $request->status == true ? '1':'0' ;
-        $product->trending = $request->trending == true ? '1':'0' ;
+        $product->isOnSale = $request->isOnSale == true ? '1':'0' ;
 
         $product->save();
 
@@ -67,10 +67,9 @@ class ProductController extends Controller
                 $finalImagePathName = $uploadPath.$filename;
                 //open added image
                 $img = Image::make($finalImagePathName);
+                $img = Image::make($finalImagePathName)->trim();
                 //resize added image with constant aspect ratio
-                $img->resize(320, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
+                $img->resize(320, 320);
                 //save added image at same path as before
                 $img->save($finalImagePathName);
 
@@ -184,7 +183,7 @@ class ProductController extends Controller
                 'quantity' => $validatedData['quantity'],
                 'brand_id' => $validatedData['brand_id'],
                 'status' => $request->status == true ? '1':'0' ,
-                'trending' => $request->trending == true ? '1':'0' ,
+                'isOnSale' => $request->isOnSale == true ? '1':'0' ,
              ]);
 
         if($request->hasFile('image')){
@@ -198,10 +197,9 @@ class ProductController extends Controller
                 $finalImagePathName = $uploadPath.$filename;
                 //open added image
                 $img = Image::make($finalImagePathName);
+                $img = Image::make($finalImagePathName)->trim();
                 //resize added image with constant aspect ratio
-                $img->resize(320, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
+                $img->resize(320, 320);
                 //save added image at same path as before
                 $img->save($finalImagePathName);
 

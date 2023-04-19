@@ -26,7 +26,7 @@
                             @error('slug') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Status</label><br/>
+                            <label>Hidden</label><br/>
                             <input type="checkbox" name="status">
                         </div>
                         <div class="col-md-12 mb-3">

@@ -25,6 +25,7 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Brand ID</th>
+                            <th>isOnSale</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -38,6 +39,7 @@
                             <td>{{ $product->price }}</td>
                             <td>{{ $product->quantity }}</td>
                             <td>{{ $product->brand_id }}</td>
+                            <td>{{ $product->isOnSale == '1' ? 'Yes':'No' }}</td>
                             <td>{{ $product->status == '1' ? 'Hidden':'Visible' }}</td>
                             <td>
                                 <a href="{{ url('admin/products/'.$product->id.'/edit') }}" class="btn btn-sm btn-success">Edit</a>

@@ -25,8 +25,10 @@
                     
                         <div>
                             <span class="selling-price">${{ $product->price }}</span>
-                            @if($lowest_price_from_30_days>0)
-                            <span class="original-price">${{ $lowest_price_from_30_days }}</span>
+                            @if($lowest_price_from_30_days>0 && $product->isOnSale==1)
+                        </div>
+                        <div>
+                            <span class="price-from-30-days">Lowest price from 30 days before sale: ${{ $lowest_price_from_30_days }}</span>
                             @endif
                         </div>
                         <div>

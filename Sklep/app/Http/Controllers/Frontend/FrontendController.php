@@ -9,14 +9,13 @@ use App\Models\Mobile;
 use App\Models\Smartwatch;
 use App\Models\Console;
 use App\Models\Product;
-use App\Models\ProductImage;
 use App\Models\Brand;
 use App\Models\Old_prices;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
-use Intervention\Image\Facades\Image;
+use Illuminate\Pagination\Paginator;
 
 class FrontendController extends Controller
 {
@@ -26,8 +25,9 @@ class FrontendController extends Controller
     }
 
     public function searchProducts(Request $request) {
+        Paginator::useBootstrapFive();
         if($request->search) {
-            $searchProducts = Product::where('name', 'LIKE', '%'.$request->search.'%')->latest()->paginate(1);
+            $searchProducts = Product::where('name', 'LIKE', '%'.$request->search.'%')->latest()->paginate(10);
             return view('frontend.pages.search', compact('searchProducts'));
         }else{
             return redirect()->back()->with('message', 'Empty Search');
@@ -49,8 +49,6 @@ class FrontendController extends Controller
         $this->$category_name = $category_name;
         $product = Product::where('category_name', $category_name);
         $brands = [];
-        $highest_30day_price = 0;
-
         if ($product!=null) {
             $products = $product->get();
             foreach($products as $item){
@@ -70,7 +68,19 @@ class FrontendController extends Controller
                 }
             }
 
-            return view('frontend.collections.products.index', compact('products','brands','category_name'));
+            $imgs = Cache::get('imgs');
+            if($imgs == null){
+                foreach($product as $item){
+                    if($imgs[$item->id] == null && $item->productImages->count() > 0){
+                        $imgs[$item->id] = $item->productImages[0]->image;
+                    }
+                }
+                Cache::put('imgs', $imgs);
+                $imgs = Cache::get('imgs');
+            }
+
+
+            return view('frontend.collections.products.index', compact('products','brands','category_name','imgs'));
         }
         else {
             return redirect()->back();

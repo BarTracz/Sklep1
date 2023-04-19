@@ -9,7 +9,7 @@ use Livewire\Component;
 class Index extends Component
 {
 
-    public $category_name, $brands, $products, $priceInput;
+    public $category_name, $brands, $products, $priceInput, $imgs;
     public $brandInputs = [];
 
     protected $querySearch = [
@@ -17,9 +17,14 @@ class Index extends Component
         'priceInput' => ['except' => '', 'as' => 'price'],
     ];
 
-    function mount($brands,$category_name) {
+    function mount($brands,$category_name,$imgs) {
         $this->category_name = $category_name;
         $this->brands = $brands;
+        $this->imgs = $imgs;
+    }
+
+    public function showCache() {
+        dd(Cache::get('imgs'));
     }
 
     public function render()
@@ -42,6 +47,7 @@ class Index extends Component
         return view('livewire.frontend.product.index', [
             'products' => $this->products,
             'brands' => $this->brands,
+            'imgs' => $this->imgs
         ]);
     }
 }

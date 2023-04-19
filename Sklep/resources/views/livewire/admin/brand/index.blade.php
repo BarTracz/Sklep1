@@ -20,7 +20,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Slug</th>
-                                <th>Status</th>
+                                <th>Hidden</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

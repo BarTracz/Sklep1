@@ -9,7 +9,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 
 class View extends Component
 {
@@ -83,12 +83,12 @@ class View extends Component
             }
     }
 
-    public function addToCart($product)
+    public function addToCart(Request $request, $product)
     {
         if(Auth::check())
         {
             $product = Product::where('id', $product['id'])->first();
-            $cart = Cache::get('cart');
+            $cart = session()->get('cart');
 
             $cart[$product->id] = [
                 'product' => $product,
@@ -96,7 +96,8 @@ class View extends Component
                 'price' => $product->price * $this->count
             ];
             
-            Cache::put('cart', $cart);
+            $request->session()->put('cart', $cart);
+            $request->session()->save();
             return redirect()->back();
         }
         else

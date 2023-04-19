@@ -54,6 +54,7 @@ class OrderFormRequest extends FormRequest
             'house' => [
                 'required',
                 'string',
+                'max:10',
                 'numeric',
             ],
         ];

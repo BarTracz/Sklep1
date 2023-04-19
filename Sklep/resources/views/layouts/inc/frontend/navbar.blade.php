@@ -1,4 +1,4 @@
-<div class="main-navbar shadow-sm sticky-top">
+<div class="autohide main-navbar navbar-expand-lg shadow-sm sticky-top">
     <div class="top-navbar">
         <div class="container-fluid">
             <div class="row">
@@ -62,6 +62,9 @@
                                 <i class="fa fa-user"></i> {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if(Auth::user()->role_as == 1)
+                                    <li><a class="dropdown-item" href="/admin/dashboard"><i class="fa fa-user"></i> {{ __('Dashboard') }}</a></li>
+                                @endif
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> {{ __('Profile') }}</a></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

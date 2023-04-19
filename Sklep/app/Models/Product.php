@@ -23,7 +23,7 @@ class Product extends Model
         'description',
         'price',
         'quantity',
-        'trending',
+        'isOnSale',
         'brand_id',
         'category_name',
         'status',
@@ -34,30 +34,30 @@ class Product extends Model
     }
 
     public function brands() {
-        return $this->hasMany(Brand::class, 'id', 'brand_id')->where('status', '0');
+        return $this->hasMany(Brand::class, 'id', 'brand_id');
     }
 
-    public function pc() {
-        return $this->hasMany(PC::class, 'id', 'product_id')->where('status', '0');
+    public function Pc() {
+        return $this->hasOne(PC::class, 'product_id', 'id');
     }
 
     public function Mobile() {
-        return $this->hasMany(Mobile::class, 'id', 'product_id')->where('status', '0');
+        return $this->hasOne(Mobile::class, 'product_id', 'id');
     }
 
     public function Laptop() {
-        return $this->hasMany(Laptop::class, 'id', 'product_id')->where('status', '0');
+        return $this->hasOne(Laptop::class, 'product_id', 'id');
     }
 
     public function Smartwatch() {
-        return $this->hasMany(Smartwatch::class, 'id', 'product_id')->where('status', '0');
+        return $this->hasOne(Smartwatch::class, 'product_id', 'id');
     }
 
     public function Console() {
-        return $this->hasMany(Console::class, 'id', 'product_id')->where('status', '0');
+        return $this->hasOne(Console::class, 'product_id', 'id');
     }
 
-    public function Old_prices() {
-        return $this->hasMany(Old_prices::class, 'id', 'old_prices_id')->where('status', '0');
+    public function Old_price() {
+        return $this->hasMany(Old_prices::class, 'old_price_id', 'id');
     }
 }

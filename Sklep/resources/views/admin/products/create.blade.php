@@ -20,7 +20,6 @@
                                 <div class="mb-3 mt-3">
                                     <label>Category</label>
                                     <select name="category_name" id="selector" class="form-control" onchange="category()">
-                                        <option value="default">-</option>
                                         <option value="pcs">PC</option>
                                         <option value="laptops">Laptop</option>
                                         <option value="mobiles">Mobile</option>
@@ -33,24 +32,28 @@
                                 <div class="mb-3 mt-3">
                                     <label>Name</label>
                                     <input type="text" name="name" class="form-control"/>
+                                    @error('name') <small class="text-danger">{{ $message }}</small>@enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3 mt-3">
                                     <label>Description</label>
                                     <textarea name="description" class="form-control"></textarea>
+                                    @error('description') <small class="text-danger">{{ $message }}</small>@enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label>Price</label>
                                     <input type="number" name="price" step="0.01" class="form-control"/>
+                                    @error('price') <small class="text-danger">{{ $message }}</small>@enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label>Quantity</label>
                                     <input type="number" name="quantity" class="form-control"/>
+                                    @error('quantity') <small class="text-danger">{{ $message }}</small>@enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -60,25 +63,27 @@
                                     @foreach ($brands as $brand)
                                         <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                     @endforeach
+                                    @error('brand') <small class="text-danger">{{ $message }}</small>@enderror
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label>Status</label><br/>
+                                    <label>Hidden</label><br/>
                                     <input type="checkbox" name="status" style="width: 50px; height: 50px;"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label>Trending</label><br/>
-                                    <input type="checkbox" name="trending" style="width: 50px; height: 50px;"/>
+                                    <label>Sale</label><br/>
+                                    <input type="checkbox" name="isOnSale" style="width: 50px; height: 50px;"/>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">        
                                     <label>Upload Product Images</label>
                                     <input type="file" name="image[]" multiple class="form-control"/>
+                                    @error('image') <small class="text-danger">{{ $message }}</small>@enderror
                                 </div>
                             </div>
                             <div id="details">

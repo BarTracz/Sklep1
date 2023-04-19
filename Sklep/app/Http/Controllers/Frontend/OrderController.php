@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\OrderFormRequest;
 use App\Models\Order;
 use App\Models\Product;
@@ -17,7 +17,7 @@ class OrderController extends Controller
     protected $totalPrice, $firstname, $lastname, $phone, $zipcode, $city, $street, $house;
 
     public function totalPrice(){
-        $cart = Cache::get('cart');
+        $cart = Session::get('cart');
         $this->totalPrice=0;
 
         foreach($cart as $item){
@@ -34,7 +34,7 @@ class OrderController extends Controller
 
     public function store(OrderFormRequest $request){
         $validatedData = $request->validated();
-        $cart = Cache::get('cart');
+        $cart = Session::get('cart');
         $totalPrice=0;
 
         foreach($cart as $item){
@@ -62,7 +62,6 @@ class OrderController extends Controller
 
             $order_list->order_id = $order->id;
             $order_list->product_id = $item['product']->id;
-            $order_list->quantity = $item['quantity'];
 
             $product = Product::where('id', $item['product']->id)->first();
             $product->quantity = $product->quantity - $item['quantity'];

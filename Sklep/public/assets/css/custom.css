@@ -275,7 +275,7 @@ body {
     text-decoration: line-through;
 }
 .price-from-30-days{
-    font-size: 18px;
+    font-size: 14px;
     color: #937979;
     font-weight: 400;
 }
@@ -527,3 +527,10 @@ body {
     }
 }
 /* Cart or Wishlist */
+
+.scrolled-down{
+    transform:translateY(-100%); transition: all 0.3s ease-in-out;
+  }
+.scrolled-up{
+    transform:translateY(-10%); transition: all 0.3s ease-in-out;
+}

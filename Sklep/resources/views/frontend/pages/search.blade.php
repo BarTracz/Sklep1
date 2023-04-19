@@ -33,7 +33,15 @@
                     </h5>
                     <div>
                         <span class="selling-price">${{ $productItem->price }}</span>
-                        <span class="price-from-30-days">TU CENA SPRZED MIESIĄCA, OKOK?</span>
+                        <div>
+                            @php
+                                $lowest_price_from_30_days = 0;
+                                $lowest_price_from_30_days = $productItem->Old_price->min('price');
+                            @endphp
+                            @if($lowest_price_from_30_days>0 && $productItem->isOnSale==1)
+                            <span class="price-from-30-days">Lowest price from 30 days before sale: ${{ $lowest_price_from_30_days }}</span>
+                            @endif
+                        </div>
                     </div>
                     <div class="mt-2">
                         <a href="{{ url('/collections/'.$productItem->category_name.'/'.$productItem->id)}}"
@@ -47,13 +55,11 @@
                 <h4>No Products Found</h4>
             </div>
             @endforelse
-
-            <div class="col-md-10">
-                {{ $searchProducts->appends(request()->input())->links() }}
-            </div>
-
         </div>
     </div>
+</div>
+<div class="col-md-12">
+    {{ $searchProducts->appends(request()->input())->links() }}
 </div>
 
 @endsection
