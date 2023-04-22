@@ -155,16 +155,44 @@ class ProductController extends Controller
         return redirect('/admin/products')->with('message', 'Product added successfully');
     }
 
-    public function edit(int $product_id){
+    public function editpc(int $product_id){
         $products = Product::all();
         $brands = Brand::all();
         $product = Product::findOrFail($product_id);
         $pcs = PC::all();
+        return view('admin.products.editpc', compact('products', 'brands', 'product', 'pcs'));
+    }
+
+    public function editlaptop(int $product_id){
+        $products = Product::all();
+        $brands = Brand::all();
+        $product = Product::findOrFail($product_id);
         $laptops = Laptop::all();
+        return view('admin.products.editlaptop', compact('products', 'brands', 'product', 'laptops'));
+    }
+
+    public function editmobile(int $product_id){
+        $products = Product::all();
+        $brands = Brand::all();
+        $product = Product::findOrFail($product_id);
         $mobiles = Mobile::all();
-        $consoles = Console::all();
+        return view('admin.products.editmobile', compact('products', 'brands', 'product', 'mobiles'));
+    }
+
+    public function editsmartwatch(int $product_id){
+        $products = Product::all();
+        $brands = Brand::all();
+        $product = Product::findOrFail($product_id);
         $smartwatches = Smartwatch::all();
-        return view('admin.products.edit', compact('products', 'brands', 'product', 'pcs', 'laptops', 'mobiles', 'consoles', 'smartwatches'));
+        return view('admin.products.editsmartwatch', compact('products', 'brands', 'product', 'smartwatches'));
+    }
+
+    public function editconsole(int $product_id){
+        $products = Product::all();
+        $brands = Brand::all();
+        $product = Product::findOrFail($product_id);
+        $consoles = Console::all();
+        return view('admin.products.editconsole', compact('products', 'brands', 'product', 'consoles'));
     }
 
     public function update(ProductFormRequest $request, int $product) {

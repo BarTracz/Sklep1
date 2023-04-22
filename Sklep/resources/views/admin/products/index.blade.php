@@ -42,7 +42,23 @@
                             <td>{{ $product->isOnSale == '1' ? 'Yes':'No' }}</td>
                             <td>{{ $product->status == '1' ? 'Hidden':'Visible' }}</td>
                             <td>
-                                <a href="{{ url('admin/products/'.$product->id.'/edit') }}" class="btn btn-sm btn-success">Edit</a>
+                            @switch($product->category_name)
+                                @case('pcs')
+                                    <a href="{{ url('admin/products/'.$product->id.'/editpc') }}" class="btn btn-sm btn-success">Edit</a>
+                                    @break
+                                @case('laptops')
+                                    <a href="{{ url('admin/products/'.$product->id.'/editlaptop') }}" class="btn btn-sm btn-success">Edit</a>
+                                    @break
+                                @case('mobiles')
+                                    <a href="{{ url('admin/products/'.$product->id.'/editmobile') }}" class="btn btn-sm btn-success">Edit</a>
+                                    @break
+                                @case('smartwatches')
+                                    <a href="{{ url('admin/products/'.$product->id.'/editsmartwatch') }}" class="btn btn-sm btn-success">Edit</a>
+                                    @break
+                                @case('consoles')
+                                    <a href="{{ url('admin/products/'.$product->id.'/editconsole') }}" class="btn btn-sm btn-success">Edit</a>
+                                    @break
+                            @endswitch
                                 <a href="{{ url('admin/products/'.$product->id.'/delete') }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
