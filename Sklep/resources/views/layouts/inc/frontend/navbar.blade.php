@@ -20,7 +20,7 @@
                     <ul class="nav justify-content-end">
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i>
                                 {{ Config::get('languages')[App::getLocale()] }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

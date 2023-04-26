@@ -90,7 +90,7 @@
                                                     </div>
                                                 @endif
                                             <div class="tab-pane fade" id="cashOnDeliveryTab" role="tabpanel" aria-labelledby="cashOnDeliveryTab-tab" tabindex="0">
-                                                <h6>{{ __('ash on Delivery Mode') }}</h6>
+                                                <h6>{{ __('Cash on Delivery Mode') }}</h6>
                                                 <hr/>
                                                 <button type="submit" class="btn btn-primary bg-dark">{{ __('Place Order') }} ({{ __('Cash on Delivery') }})</button>
                                             </div>

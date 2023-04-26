@@ -165,6 +165,7 @@ body {
     padding: 8px 20px;
     color: #373737;
     font-size: 15px;
+    font-family: Lato;
     letter-spacing: 2px;
 }
 .main-navbar .navbar .nav-item .nav-link:hover{

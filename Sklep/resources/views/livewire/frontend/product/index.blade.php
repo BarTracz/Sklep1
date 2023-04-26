@@ -14,10 +14,10 @@
                     <div class="card-header"><h5>{{ __('Price') }}</h5></div>
                     <div class="card-body">
                         <label class="d-block">
-                            <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" />{{ __('High to low') }}
+                            <input type="radio" name="priceSort" wire:model="priceInput" value="high-to-low" style="margin-right: 2px;"/>{{ __('High to low') }}
                         </label>
                         <label class="d-block">
-                            <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" />{{ __('Low to high') }}
+                            <input type="radio" name="priceSort" wire:model="priceInput" value="low-to-high" style="margin-right: 2px;"/>{{ __('Low to high') }}
                         </label>
                     </div>
                 </div>
