@@ -1,7 +1,7 @@
 /* Slider */
 
 body {
-    font-family: "Lato";
+    font-family: "Roboto";
     font-weight: 400;
     color: #000000;
  }
@@ -14,7 +14,7 @@ body {
   
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Lato"; }
+    font-family: "Roboto"; }
   
   a {
     -webkit-transition: .3s all ease;
@@ -165,7 +165,7 @@ body {
     padding: 8px 20px;
     color: #373737;
     font-size: 15px;
-    font-family: Lato;
+    font-family: Roboto;
     letter-spacing: 2px;
 }
 .main-navbar .navbar .nav-item .nav-link:hover{
@@ -240,6 +240,7 @@ body {
 }
 .product-card .product-card-body{
     width: 70%;
+    padding: 4%;
 }
 .product-card .product-card-body a:hover{
     background-color: #000;
@@ -533,5 +534,16 @@ body {
     transform:translateY(-100%); transition: all 0.3s ease-in-out;
   }
 .scrolled-up{
-    transform:translateY(-10%); transition: all 0.3s ease-in-out;
+    transform:translateY(-30%); transition: all 0.3s ease-in-out;
 }
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #ffffff;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom, rgba(255,255,255,1), rgba(219,219,219,1));
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(219,219,219,1))
+  }

@@ -8,7 +8,7 @@
             @endif
             <div class="row">
                 <div class="col-md-5 mt-3">
-                    <div class="bg-white border">
+                    <div class="bg-white">
                         @if ($product->productImages->count() > 0)
                         <img src="{{ asset($product->productImages[0]->image) }}" alt="{{ $product->name }}">
                         @endif
